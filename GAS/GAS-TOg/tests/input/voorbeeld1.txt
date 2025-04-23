@@ -1,0 +1,23 @@
+# lijnen die beginnen met # worden genegeerd
+
+# initialisatie deel
+init
+shot melk 10 2030 5 1
+honing 10 2030 5 1
+gebruiker John Doe john@doe.com
+werknemer Jane Doe 5
+
+# script deel
+start
+
+# op tijdstip 1 wordt een chocolademelk besteld
+# de chocolademelk heeft twee ingredienten
+1 bestel john@doe.com melk honing 2024 5 1 11 30
+
+# op tijdstip 2 zijn er geen instructies
+
+# op tijdstip 3 worden 4 melk shots toegevoegd aan de stock
+3 stock shot melk 4 2030 5 1
+
+# op tijdstip 4 wordt de log van het systeem gegenereerd 
+4 log

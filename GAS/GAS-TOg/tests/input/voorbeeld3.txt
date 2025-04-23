@@ -1,0 +1,56 @@
+# lijnen die beginnen met # worden genegeerd
+
+# initialisatie deel
+init
+shot melk 10 2030 5 1
+shot melk 10 2030 6 10
+shot wit 10 2030 5 1
+shot zwart 5 2030 5 1
+shot bruin 20 2030 5 1
+honing 10 2030 5 1
+marshmallow 10 2030 5 1
+chilipeper 5 2030 5 1
+karamel 15 2030 5 1
+slagroom 20 2030 5 1
+gebruiker Tom Hofkens tom.hofkens@uantwerpen.be
+gebruiker John Doe john@doe.com
+gebruiker Alice Smith alice.smith@example.com
+werknemer Jane Doe 5
+werknemer Wim Hofkens 2
+werknemer Sarah Johnson 3
+
+# start het systeem op
+start
+
+# tijdstip 1: verschillende bestellingen
+1 bestel tom.hofkens@uantwerpen.be melk chilipeper marshmallow 2024 5 1 11 30
+1 bestel alice.smith@example.com zwart karamel slagroom 2024 5 1 11 35
+
+# tijdstip 2: meerdere bestellingen met verschillende combinaties
+2 bestel john@doe.com wit honing bruin marshmallow 2024 5 1 12 00
+2 bestel tom.hofkens@uantwerpen.be melk marshmallow 2024 5 1 12 00
+2 bestel alice.smith@example.com zwart zwart marshmallow slagroom 2024 5 1 12 05
+
+# tijdstip 3: onvoldoende voorraad test
+3 bestel tom.hofkens@uantwerpen.be zwart zwart zwart 2024 5 1 13 00 # verwacht: foutmelding te weinig zwart chocolade
+
+# tijdstip 4: voorraad wordt aangevuld
+4 stock shot zwart 10 2030 5 1
+4 stock shot melk 5 2030 5 1
+4 stock shot bruin 8 2030 5 1
+4 stock shot wit 3 2030 5 1
+
+# tijdstip 5: opnieuw bestelling na voorraad aanvulling
+5 bestel tom.hofkens@uantwerpen.be zwart zwart zwart 2024 5 1 14 00 # verwacht: succesvol
+5 bestel alice.smith@example.com melk honing karamel 2024 5 1 14 05
+
+# tijdstip 6: extra tests met latere vervaldatums
+6 stock shot melk 5 2031 6 10
+6 stock shot wit 5 2031 6 10
+
+# tijdstip 7: meer bestellingen
+7 bestel john@doe.com bruin bruin marshmallow honing 2024 5 2 09 00
+7 bestel alice.smith@example.com wit wit karamel slagroom 2024 5 2 09 15
+
+# tijdstip 8: logbestand genereren
+8 log
