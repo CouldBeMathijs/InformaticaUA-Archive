@@ -18,6 +18,15 @@ Mijn notities zijn vrij te gebruiken voor iedereen die er iets aan heeft.
 | Project Software Engineering        | prof. Serge Demeyer                             |
 | Talen & Automaten                   | prof. Els Laenens, prof. Tom Hofkens            |
 
+## Docenten - 2de Bachelor
+
+| Vak                                 | Docent(en)                                      |
+|-------------------------------------|-------------------------------------------------|
+| Geavanceerd Programmeren            | prof. Erik Mannens                              |
+| Inleiding Databases                 | prof. Floris Geerts                             |
+| Linear Algebra                      | prof. Masoud Ahookhosh                          |
+| Machines & Berekenbaarheid          | prof. Els Laenens, prof. Tom Hofkens            |
+| Operating Systems                   | prof. José Antonio Oramas Mogrovejo             |
 
 _Alle bestanden zijn AGPL-V3 of later tenzij anders aangegeven._
 
