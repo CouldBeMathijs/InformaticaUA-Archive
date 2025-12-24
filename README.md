@@ -22,7 +22,7 @@ Mijn notities zijn vrij te gebruiken voor iedereen die er iets aan heeft.
 
 | Vak                                 | Docent(en)                                      |
 |-------------------------------------|-------------------------------------------------|
-| Geavanceerd Programmeren            | prof. Erik Mannens                              |
+| Geavanceerd Programmeren            | prof. Brent Van Bladel                          |
 | Inleiding Databases                 | prof. Floris Geerts                             |
 | Linear Algebra                      | prof. Masoud Ahookhosh                          |
 | Machines & Berekenbaarheid          | prof. Els Laenens, prof. Tom Hofkens            |
