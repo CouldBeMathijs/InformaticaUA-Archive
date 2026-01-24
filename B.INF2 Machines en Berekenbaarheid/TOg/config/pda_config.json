@@ -1,0 +1,71 @@
+{
+  "States": ["q0", "q1", "qF1", "qF2"],
+  "Alphabet": ["OP_BIN", "OP_UN_PRE", "OP_UN_POST", "FUNC1", "FUNC2", "(", ")", ",", "NUM"],
+  "StackAlphabet": ["Z", "P", "F1", "F2", "F2C"],
+  "StartState": "q0",
+  "StartStack": "Z",
+  "AcceptingStates": ["q1"],
+  "Transitions": [
+    {"from":"q0","input":"OP_UN_PRE","stacktop":"Z","to":"q0","replacement":["Z"]},
+    {"from":"q0","input":"OP_UN_PRE","stacktop":"P","to":"q0","replacement":["P"]},
+    {"from":"q0","input":"OP_UN_PRE","stacktop":"F1","to":"q0","replacement":["F1"]},
+    {"from":"q0","input":"OP_UN_PRE","stacktop":"F2","to":"q0","replacement":["F2"]},
+    {"from":"q0","input":"OP_UN_PRE","stacktop":"F2C","to":"q0","replacement":["F2C"]},
+
+    {"from":"q0","input":"NUM","stacktop":"Z","to":"q1","replacement":["Z"]},
+    {"from":"q0","input":"NUM","stacktop":"P","to":"q1","replacement":["P"]},
+    {"from":"q0","input":"NUM","stacktop":"F1","to":"q1","replacement":["F1"]},
+    {"from":"q0","input":"NUM","stacktop":"F2","to":"q1","replacement":["F2"]},
+    {"from":"q0","input":"NUM","stacktop":"F2C","to":"q1","replacement":["F2C"]},
+
+    {"from":"q0","input":"(","stacktop":"Z","to":"q0","replacement":["Z","P"]},
+    {"from":"q0","input":"(","stacktop":"P","to":"q0","replacement":["P","P"]},
+    {"from":"q0","input":"(","stacktop":"F1","to":"q0","replacement":["F1","P"]},
+    {"from":"q0","input":"(","stacktop":"F2","to":"q0","replacement":["F2","P"]},
+    {"from":"q0","input":"(","stacktop":"F2C","to":"q0","replacement":["F2C","P"]},
+
+    {"from":"q0","input":"FUNC1","stacktop":"Z","to":"qF1","replacement":["Z"]},
+    {"from":"q0","input":"FUNC1","stacktop":"P","to":"qF1","replacement":["P"]},
+    {"from":"q0","input":"FUNC1","stacktop":"F1","to":"qF1","replacement":["F1"]},
+    {"from":"q0","input":"FUNC1","stacktop":"F2","to":"qF1","replacement":["F2"]},
+    {"from":"q0","input":"FUNC1","stacktop":"F2C","to":"qF1","replacement":["F2C"]},
+
+    {"from":"qF1","input":"(","stacktop":"Z","to":"q0","replacement":["Z","F1"]},
+    {"from":"qF1","input":"(","stacktop":"P","to":"q0","replacement":["P","F1"]},
+    {"from":"qF1","input":"(","stacktop":"F1","to":"q0","replacement":["F1","F1"]},
+    {"from":"qF1","input":"(","stacktop":"F2","to":"q0","replacement":["F2","F1"]},
+    {"from":"qF1","input":"(","stacktop":"F2C","to":"q0","replacement":["F2C","F1"]},
+
+    {"from":"q0","input":"FUNC2","stacktop":"Z","to":"qF2","replacement":["Z"]},
+    {"from":"q0","input":"FUNC2","stacktop":"P","to":"qF2","replacement":["P"]},
+    {"from":"q0","input":"FUNC2","stacktop":"F1","to":"qF2","replacement":["F1"]},
+    {"from":"q0","input":"FUNC2","stacktop":"F2","to":"qF2","replacement":["F2"]},
+    {"from":"q0","input":"FUNC2","stacktop":"F2C","to":"qF2","replacement":["F2C"]},
+
+    {"from":"qF2","input":"(","stacktop":"Z","to":"q0","replacement":["Z","F2"]},
+    {"from":"qF2","input":"(","stacktop":"P","to":"q0","replacement":["P","F2"]},
+    {"from":"qF2","input":"(","stacktop":"F1","to":"q0","replacement":["F1","F2"]},
+    {"from":"qF2","input":"(","stacktop":"F2","to":"q0","replacement":["F2","F2"]},
+    {"from":"qF2","input":"(","stacktop":"F2C","to":"q0","replacement":["F2C","F2"]},
+
+    {"from":"q1","input":"OP_UN_POST","stacktop":"Z","to":"q1","replacement":["Z"]},
+    {"from":"q1","input":"OP_UN_POST","stacktop":"P","to":"q1","replacement":["P"]},
+    {"from":"q1","input":"OP_UN_POST","stacktop":"F1","to":"q1","replacement":["F1"]},
+    {"from":"q1","input":"OP_UN_POST","stacktop":"F2","to":"q1","replacement":["F2"]},
+    {"from":"q1","input":"OP_UN_POST","stacktop":"F2C","to":"q1","replacement":["F2C"]},
+
+    {"from":"q1","input":"OP_BIN","stacktop":"Z","to":"q0","replacement":["Z"]},
+    {"from":"q1","input":"OP_BIN","stacktop":"P","to":"q0","replacement":["P"]},
+    {"from":"q1","input":"OP_BIN","stacktop":"F1","to":"q0","replacement":["F1"]},
+    {"from":"q1","input":"OP_BIN","stacktop":"F2","to":"q0","replacement":["F2"]},
+    {"from":"q1","input":"OP_BIN","stacktop":"F2C","to":"q0","replacement":["F2C"]},
+
+    {"from":"q1","input":")","stacktop":"P","to":"q1","replacement":[]},
+    {"from":"q1","input":")","stacktop":"F1","to":"q1","replacement":[]},
+    {"from":"q1","input":")","stacktop":"F2C","to":"q1","replacement":[]},
+
+    {"from":"q1","input":",","stacktop":"F2","to":"q0","replacement":["F2C"]},
+
+    {"from":"q1","input":"","stacktop":"Z","to":"q1","replacement":[]}
+  ]
+}

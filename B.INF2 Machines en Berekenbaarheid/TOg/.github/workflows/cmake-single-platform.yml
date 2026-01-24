@@ -1,0 +1,52 @@
+name: Ultimate Fast CMake CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  BUILD_TYPE: Debug
+  CCACHE_DIR: ${{ github.workspace }}/.ccache
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Tools
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libsfml-dev graphviz ninja-build ccache
+
+    - name: ccache persistent storage
+      uses: actions/cache@v4
+      with:
+        path: ${{ env.CCACHE_DIR }}
+        key: ${{ runner.os }}-ccache-${{ github.ref }}-${{ github.run_id }}
+        restore-keys: |
+          ${{ runner.os }}-ccache-${{ github.ref }}-
+          ${{ runner.os }}-ccache-
+
+    - name: Configure ccache & CMake
+      run: |
+        ccache --set-config=max_size=2.0G
+        ccache --set-config=compression=true
+        cmake -G Ninja -B build \
+          -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+          -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+          -DCMAKE_C_COMPILER_LAUNCHER=ccache
+
+    - name: Build
+      run: cmake --build build --parallel
+
+    - name: Test
+      run: ctest --test-dir build -C ${{env.BUILD_TYPE}} --output-on-failure
+
+    - name: Cache Stats
+      # "always()" ensures that even if tests fail, we see our cache performance
+      if: always()
+      run: ccache -s

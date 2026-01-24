@@ -1,0 +1,28 @@
+{
+  "Variables": ["S", "E", "T", "F", "G"],
+  "Terminals": ["+", "-", "*", "/", "^", "(", ")", "NUM", "ID", "cos", "sin", "tan", "log", "sqrt"],
+  "Start": "S",
+  "Productions": [
+    {"head": "S", "body": ["E"]},
+
+    {"head": "E", "body": ["E", "+", "T"]},
+    {"head": "E", "body": ["E", "-", "T"]},
+    {"head": "E", "body": ["T"]},
+
+    {"head": "T", "body": ["T", "*", "F"]},
+    {"head": "T", "body": ["T", "/", "F"]},
+    {"head": "T", "body": ["F"]},
+
+    {"head": "F", "body": ["G", "^", "F"]},
+    {"head": "F", "body": ["G"]},
+
+    {"head": "G", "body": ["cos", "(", "E", ")"]},
+    {"head": "G", "body": ["sin", "(", "E", ")"]},
+    {"head": "G", "body": ["tan", "(", "E", ")"]},
+    {"head": "G", "body": ["log", "(", "E", ")"]},
+    {"head": "G", "body": ["sqrt", "(", "E", ")"]},
+    {"head": "G", "body": ["(", "E", ")"]},
+    {"head": "G", "body": ["NUM"]},
+    {"head": "G", "body": ["ID"]}
+  ]
+}

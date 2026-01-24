@@ -1,0 +1,22 @@
+{
+  "Variables": ["S", "E", "T", "F", "G"],
+  "Terminals": ["OP_BIN", "OP_UN_PRE", "OP_UN_POST", "FUNC1", "FUNC2", "(", ")", ",", "NUM"],
+  "Start": "S",
+  "Productions": [
+    { "head": "S", "body": ["E"] },
+
+    { "head": "E", "body": ["E", "OP_BIN", "T"] },
+    { "head": "E", "body": ["T"] },
+
+    { "head": "T", "body": ["OP_UN_PRE", "T"] },
+    { "head": "T", "body": ["F"] },
+
+    { "head": "F", "body": ["F", "OP_UN_POST"] },
+    { "head": "F", "body": ["G"] },
+
+    { "head": "G", "body": ["FUNC1", "(", "E", ")"] },
+    { "head": "G", "body": ["FUNC2", "(", "E", ",", "E", ")"] },
+    { "head": "G", "body": ["(", "E", ")"] },
+    { "head": "G", "body": ["NUM"] }
+  ]
+}

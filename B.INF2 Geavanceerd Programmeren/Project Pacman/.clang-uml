@@ -1,0 +1,21 @@
+compilation_database_dir: buildDir
+output_directory: diagrams
+relative_to: .
+query_driver: g++
+
+diagrams:
+  project_inheritance_diagram:
+    type: class
+    glob:
+      - "**/*.cpp"
+      - "**/*.h"
+    using_namespace: ""
+    include:
+      paths:
+        - .
+    exclude:
+      # This removes the function/method list from the boxes
+      namespaces:
+        - std
+      paths:
+        - "/nix/store/*"

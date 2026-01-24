@@ -1,0 +1,750 @@
+{
+    "binary_operators": [
+        {
+            "assoc": "left",
+            "expr": {
+                "left": {
+                    "name": "a",
+                    "type": "var"
+                },
+                "op": "add",
+                "right": {
+                    "name": "b",
+                    "type": "var"
+                },
+                "type": "binary"
+            },
+            "notation": "infix",
+            "symbol": "+",
+            "weight": 10
+        },
+        {
+            "assoc": "left",
+            "expr": {
+                "left": {
+                    "name": "a",
+                    "type": "var"
+                },
+                "op": "sub",
+                "right": {
+                    "name": "b",
+                    "type": "var"
+                },
+                "type": "binary"
+            },
+            "notation": "infix",
+            "symbol": "-",
+            "weight": 10
+        },
+        {
+            "assoc": "left",
+            "expr": {
+                "left": {
+                    "name": "a",
+                    "type": "var"
+                },
+                "op": "mul",
+                "right": {
+                    "name": "b",
+                    "type": "var"
+                },
+                "type": "binary"
+            },
+            "notation": "infix",
+            "symbol": "*",
+            "weight": 20
+        },
+        {
+            "assoc": "left",
+            "expr": {
+                "left": {
+                    "name": "a",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "name": "b",
+                    "type": "var"
+                },
+                "type": "binary"
+            },
+            "notation": "infix",
+            "symbol": "/",
+            "weight": 20
+        },
+        {
+            "assoc": "right",
+            "expr": {
+                "left": {
+                    "name": "a",
+                    "type": "var"
+                },
+                "op": "pow",
+                "right": {
+                    "name": "b",
+                    "type": "var"
+                },
+                "type": "binary"
+            },
+            "notation": "infix",
+            "symbol": "^",
+            "weight": 30
+        },
+        {
+            "arity": 2,
+            "expr": {
+                "left": {
+                    "name": "a",
+                    "type": "var"
+                },
+                "op": "min",
+                "right": {
+                    "name": "b",
+                    "type": "var"
+                },
+                "type": "binary"
+            },
+            "notation": "call",
+            "symbol": "min"
+        },
+        {
+            "arity": 2,
+            "expr": {
+                "left": {
+                    "name": "a",
+                    "type": "var"
+                },
+                "op": "max",
+                "right": {
+                    "name": "b",
+                    "type": "var"
+                },
+                "type": "binary"
+            },
+            "notation": "call",
+            "symbol": "max"
+        },
+        {
+            "arity": 2,
+            "expr": {
+                "left": {
+                    "name": "a",
+                    "type": "var"
+                },
+                "op": "atan2",
+                "right": {
+                    "name": "b",
+                    "type": "var"
+                },
+                "type": "binary"
+            },
+            "notation": "call",
+            "symbol": "atan2"
+        }
+    ],
+    "metadata": {
+        "api_date": "2026-01-22",
+        "generated_at": "Jan  1 1980 00:00:00",
+        "source": "Frankfurter API"
+    },
+    "unary_operators": [
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 100
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "%"
+        },
+        {
+            "expr": {
+                "arg": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "pos",
+                "type": "unary"
+            },
+            "notation": "prefix",
+            "symbol": "+"
+        },
+        {
+            "expr": {
+                "arg": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "neg",
+                "type": "unary"
+            },
+            "notation": "prefix",
+            "symbol": "-"
+        },
+        {
+            "arity": 1,
+            "expr": {
+                "arg": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "abs",
+                "type": "unary"
+            },
+            "notation": "call",
+            "symbol": "abs"
+        },
+        {
+            "arity": 1,
+            "expr": {
+                "arg": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "cos",
+                "type": "unary"
+            },
+            "notation": "call",
+            "symbol": "cos"
+        },
+        {
+            "arity": 1,
+            "expr": {
+                "arg": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "log",
+                "type": "unary"
+            },
+            "notation": "call",
+            "symbol": "log"
+        },
+        {
+            "arity": 1,
+            "expr": {
+                "arg": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "sin",
+                "type": "unary"
+            },
+            "notation": "call",
+            "symbol": "sin"
+        },
+        {
+            "arity": 1,
+            "expr": {
+                "arg": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "sqrt",
+                "type": "unary"
+            },
+            "notation": "call",
+            "symbol": "sqrt"
+        },
+        {
+            "arity": 1,
+            "expr": {
+                "arg": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "tan",
+                "type": "unary"
+            },
+            "notation": "call",
+            "symbol": "tan"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 1.7197
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "AUD"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 6.2218
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "BRL"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 1.6171
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "CAD"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 0.9283
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "CHF"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 8.1658
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "CNY"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 24.31
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "CZK"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 7.4688
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "DKK"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 1
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "EUR"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 0.8722
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "GBP"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 9.1283
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "HKD"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 382.7
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "HUF"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 19754
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "IDR"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 3.6754
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "ILS"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 107.22
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "INR"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 146.0
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "ISK"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 185.88
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "JPY"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 1718.11
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "KRW"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 20.468
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "MXN"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 4.7292
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "MYR"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 11.576
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "NOK"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 1.991
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "NZD"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 69.227
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "PHP"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 4.2063
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "PLN"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 5.0923
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "RON"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 10.594
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "SEK"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 1.5026
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "SGD"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 36.675
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "THB"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 50.668
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "TRY"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 1.1706
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "USD"
+        },
+        {
+            "expr": {
+                "left": {
+                    "name": "x",
+                    "type": "var"
+                },
+                "op": "div",
+                "right": {
+                    "type": "number",
+                    "value": 18.9855
+                },
+                "type": "binary"
+            },
+            "notation": "postfix",
+            "symbol": "ZAR"
+        }
+    ]
+}

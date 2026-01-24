@@ -1,0 +1,63 @@
+name: "Flake.lock: update Nix dependencies"
+
+on:
+  # The new 'push' event trigger
+  push:
+    paths:
+      - 'flake.nix'
+  # Existing triggers
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * MON'
+jobs:
+  nix-flake-update:
+    permissions:
+      contents: write
+      id-token: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        # Important: Fetch full history so we can commit
+        with:
+          fetch-depth: 0
+
+      - uses: DeterminateSystems/determinate-nix-action@main
+
+      - name: Update flake.lock
+        # Run the update command
+        run: nix flake update
+      - name: Test build
+        run: nix build
+      
+      - name: Check for Changes
+        # Check if the lock file has actually changed and set output via $GITHUB_OUTPUT
+        id: git_status
+        run: |
+          if git diff --exit-code flake.lock; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and Push
+        # Only run the commit if there are changes
+        if: steps.git_status.outputs.changed == 'true'
+        run: |
+          # The current branch name is available in $GITHUB_REF_NAME
+          BRANCH_NAME=$GITHUB_REF_NAME
+
+          # Configure Git user
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Add the changed lock file
+          git add flake.lock
+          
+          # Commit the changes
+          git commit -m "chore(deps): Update Nix flake dependencies"
+          
+          # Push to the current branch
+          echo "Pushing changes to branch: $BRANCH_NAME"
+          git push origin HEAD:$BRANCH_NAME

@@ -1,0 +1,127 @@
+{
+    "unary_operators": [
+        {
+            "symbol": "+", "notation": "prefix",
+            "expr": { "type": "unary", "op": "pos", "arg": { "type": "var", "name": "x" } }
+        },
+        {
+            "symbol": "-", "notation": "prefix",
+            "expr": { "type": "unary", "op": "neg", "arg": { "type": "var", "name": "x" } }
+        },
+
+        {
+            "symbol": "abs",  "notation": "call", "arity": 1,
+            "expr": { "type": "unary", "op": "abs", "arg": { "type": "var", "name": "x" } }
+        },
+        {
+            "symbol": "sqrt", "notation": "call", "arity": 1,
+            "expr": { "type": "unary", "op": "sqrt", "arg": { "type": "var", "name": "x" } }
+        },
+        {
+            "symbol": "log",  "notation": "call", "arity": 1,
+            "expr": { "type": "unary", "op": "log", "arg": { "type": "var", "name": "x" } }
+        },
+
+        {
+            "symbol": "sin",  "notation": "call", "arity": 1,
+            "expr": { "type": "unary", "op": "sin", "arg": { "type": "var", "name": "x" } }
+        },
+        {
+            "symbol": "cos",  "notation": "call", "arity": 1,
+            "expr": { "type": "unary", "op": "cos", "arg": { "type": "var", "name": "x" } }
+        },
+        {
+            "symbol": "tan",  "notation": "call", "arity": 1,
+            "expr": { "type": "unary", "op": "tan", "arg": { "type": "var", "name": "x" } }
+        },
+        {
+            "symbol": "%", "notation": "postfix",
+            "expr": { "type": "binary", "op": "div",
+                "left": { "type": "var", "name": "x" },
+                "right": { "type": "number", "value": 100 }
+            }
+        }
+    ],
+
+    "binary_operators": [
+        {
+            "symbol": "+",
+            "notation": "infix",
+            "weight": 10,
+            "assoc": "left",
+            "expr": { "type": "binary", "op": "add",
+                "left": { "type": "var", "name": "a" },
+                "right": { "type": "var", "name": "b" }
+            }
+        },
+        {
+            "symbol": "-",
+            "notation": "infix",
+            "weight": 10,
+            "assoc": "left",
+            "expr": { "type": "binary", "op": "sub",
+                "left": { "type": "var", "name": "a" },
+                "right": { "type": "var", "name": "b" }
+            }
+        },
+        {
+            "symbol": "*",
+            "notation": "infix",
+            "weight": 20,
+            "assoc": "left",
+            "expr": { "type": "binary", "op": "mul",
+                "left": { "type": "var", "name": "a" },
+                "right": { "type": "var", "name": "b" }
+            }
+        },
+        {
+            "symbol": "/",
+            "notation": "infix",
+            "weight": 20,
+            "assoc": "left",
+            "expr": { "type": "binary", "op": "div",
+                "left": { "type": "var", "name": "a" },
+                "right": { "type": "var", "name": "b" }
+            }
+        },
+        {
+            "symbol": "^",
+            "notation": "infix",
+            "weight": 30,
+            "assoc": "right",
+            "expr": { "type": "binary", "op": "pow",
+                "left": { "type": "var", "name": "a" },
+                "right": { "type": "var", "name": "b" }
+            }
+        },
+
+        {
+            "symbol": "min", "notation": "call", "arity": 2,
+            "expr": { "type": "binary", "op": "min",
+                "left": { "type": "var", "name": "a" },
+                "right": { "type": "var", "name": "b" }
+            }
+        },
+        {
+            "symbol": "max", "notation": "call", "arity": 2,
+            "expr": { "type": "binary", "op": "max",
+                "left": { "type": "var", "name": "a" },
+                "right": { "type": "var", "name": "b" }
+            }
+        },
+        {
+            "symbol": "atan2", "notation": "call", "arity": 2,
+            "expr": { "type": "binary", "op": "atan2",
+                "left": { "type": "var", "name": "a" },
+                "right": { "type": "var", "name": "b" }
+            }
+        },
+        {
+            "symbol": "|", "notation": "infix", "weight": 20, "assoc": "left",
+            "expr": { "type": "binary", "op": "fmod",
+                "left": { "type": "var", "name": "a" },
+                "right": { "type": "var", "name": "b" }
+            }
+        }
+    ]
+}

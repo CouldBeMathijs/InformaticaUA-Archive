@@ -1,0 +1,7 @@
+π maker, model (Product) ⨝ π PC.price, model (σ PC.price ≥ 1000 (PC))
+π maker ( σ type = 'pc' (Product))
+π maker ((π model (σ ram ≥ 2048 (PC)) ∪ π model( σ ram ≥ 2048 (Laptop))) ⨝ (π maker, model (Product)))
+π maker (Product) - π maker (σ type = 'laptop' ∨ type = 'printer' (Product))
+
+π price, model (σ maker = 'B' (Product) ⨝ ( π price, model ( PC ) ∪ π price, model ( Laptop ) ∪ π price, model ( Printer )))
+

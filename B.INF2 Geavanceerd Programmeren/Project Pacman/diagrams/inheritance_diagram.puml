@@ -1,0 +1,724 @@
+@startuml
+class "Stopwatch" as C_0008830367463224641094
+class C_0008830367463224641094 {
+-Stopwatch() : void
++Stopwatch(const Stopwatch &) = deleted : void
+..
++operator=(const Stopwatch &) = deleted : Stopwatch &
+..
++getDeltaTime() const : double
+{static} +getInstance() : Stopwatch &
++tick() : void
+__
+-m_deltaTime : double
+-m_lastTickTime : TimePoint
+}
+class "Random" as C_0000587488340150007616
+class C_0000587488340150007616 {
+-Random() : void
++Random(const Random &) = deleted : void
+..
++operator=(const Random &) = deleted : Random &
+..
++generateDouble(double min, double max) : double
++generateInt(int min, int max) : int
+{static} +getInstance() : Random &
++getRandomElement<T>(const std::vector<T> & vec) : const T &
++getRandomElement<T>(const std::set<T> & s) : const T &
+__
+-m_generator : std::mt19937
+}
+abstract "IObserver" as C_0010304260020277282950
+abstract C_0010304260020277282950 {
+#IObserver() = default : void
++~IObserver() constexpr = default : void
+..
+{abstract} +update() = 0 : void
+__
+}
+class "HighScoreEntry" as C_0000669035188622151792
+class C_0000669035188622151792 {
++operator>(const HighScoreEntry & other) const : bool
+__
++score : unsigned int
++timestamp : std::time_t
+}
+class "ScoreKeeper" as C_0008972945966905514525
+class C_0008972945966905514525 {
+-ScoreKeeper() : void
++ScoreKeeper(const ScoreKeeper &) = deleted : void
+..
++operator=(const ScoreKeeper &) = deleted : ScoreKeeper &
+..
++addCollectable() : void
++addPointsWithMultiplier(unsigned int baseScore) : void
++addToScore(int s) : void
++collectablesLeft() const : bool
++getHighScores() : const std::vector<HighScoreEntry> &
+{static} +getInstance() : ScoreKeeper &
++getLevel() const : unsigned int
++getLives() const : unsigned int
++getScore() const : unsigned int
++loadHighScores() : void
++nextLevel() : void
++recordCurrentScore() : void
++removeCollectable() : void
++removeLife() : void
++reset() : void
++saveHighScores() const : void
++update() : void
+__
+{static} -MAX_HIGH_SCORES : const int
+{static} -MAX_MULTIPLIER_TIME_S : const double
+{static} -TIME_BETWEEN_SCORE_DECREASE_S : const double
+-m_collectablesLeft : unsigned int
+-m_currentScore : unsigned int
+-m_filePath : const std::string
+-m_highScores : std::vector<HighScoreEntry>
+-m_lastDeductionTime : TimePoint
+-m_lastPickupTime : TimePoint
+-m_level : unsigned int
+-m_lives : unsigned int
+}
+abstract "ISubject" as C_0012588535619499416747
+abstract C_0012588535619499416747 {
+#ISubject() = default : void
++~ISubject() constexpr = default : void
+..
+{abstract} +accept(IEntityVisitor & visitor) = 0 : void
++addObserver(std::weak_ptr<IObserver>) : void
++notify() : void
++update(Direction::Cardinal) : void
+__
+-m_observers : std::vector<std::weak_ptr<IObserver>>
+}
+class "Position" as C_0003696319223639600799
+class C_0003696319223639600799 {
++Position(const double x, const double y) : void
+..
++operator*=(const Position & other) : Position &
++operator*=(double scalar) : Position &
++operator+=(const Position & other) : Position &
++operator-=(const Position & other) : Position &
++operator/=(const Position & other) : Position &
++operator/=(double scalar) : Position &
+..
++manhattan_distance_to(const Position & other) const : double
++rescale(const Position & current_min, const Position & current_max, const Position & wanted_min, const Position & wanted_max) const : Position
+__
++x : double
++y : double
+}
+class "Rectangle" as C_0002988716631001961046
+class C_0002988716631001961046 {
++Rectangle(const Position & top_left, const Position & bottom_right) : void
++Rectangle() : void
+..
++getCenter() const : Position
++moveBy(const Position & other) : void
++moveBy(double deltaX, double deltaY) : void
++moveTo(const Position & newTopLeft) : void
++movedBy(const Position & other) const : Rectangle
++movedBy(double deltaX, double deltaY) const : Rectangle
++rescale(const Position & current_min, const Position & current_max, const Position & wanted_min, const Position & wanted_max) const : Rectangle
++scaledBy(double scale) const : Rectangle
++snapToGrid() : void
+__
++bottomRight : Position
++topLeft : Position
+}
+enum "Direction::Cardinal" as C_0016117447073526236276
+enum C_0016117447073526236276 {
+EAST
+SOUTH
+WEST
+NORTH
+NONE
+}
+class "IEntityModel" as C_0008598544415685229867
+class C_0008598544415685229867 {
+#IEntityModel(Rectangle hitBox, Direction::Cardinal) : void
+..
+{static} +calculateFutureHitBox(const Rectangle & current_hb, Direction::Cardinal d, double distance) : Rectangle
++getDirection() const : Direction::Cardinal
++getHitBox() const : Rectangle
++isBlocked(const std::vector<std::shared_ptr<IEntityModel>> & touchingEntities) : bool
++isInBounds(const Rectangle & boundBox) const : bool
++isMarkedForDeletion() const : bool
++markForDeletion() : void
++snapToGrid() : void
+__
+#m_direction : Direction::Cardinal
+#m_hitBox : Rectangle
+#m_isMarkedForDeletion : bool
+}
+class "IDirectionalEntityModel" as C_0017069165727288127347
+class C_0017069165727288127347 {
++IDirectionalEntityModel(const Rectangle & hitBox, Direction::Cardinal cardinal, double speed) : void
+..
++getSpeed() const : double
++goToSpawn() : void
++move() : void
++setDirection(Direction::Cardinal d) : void
++setHitBox(const Rectangle & hb) : void
+__
+#m_spawnPoint : Position
+#m_speed : double
+}
+enum "GhostMode" as C_0002078913488419147573
+enum C_0002078913488419147573 {
+CHASING
+PANICKING
+WAITING
+DEAD
+}
+enum "ChasingAlgorithm" as C_0007975589031372898121
+enum C_0007975589031372898121 {
+DIRECTIONAL
+IN_FRONT_MANHATTAN
+ON_TOP_MANHATTAN
+}
+class "GhostState" as C_0008379524515560435251
+class C_0008379524515560435251 {
+__
++mode : GhostMode
++timer : double
+}
+class "GhostModeStack" as C_0010504594651002877062
+class C_0010504594651002877062 {
+__
+}
+class "IGhost" as C_0003714358718179235535
+class C_0003714358718179235535 {
+#IGhost(const Rectangle & pos, GhostMode start_mode, double amountOfSecondsLeftInCurrentMode, ChasingAlgorithm algorithm) : void
+..
++accept(IEntityVisitor & visitor) : void
++allowedToTurn() const : bool
++canMoveThroughSpawnDoor() const : bool
++die() : void
++displayInfo() const : void
++getAlgorithm() const : ChasingAlgorithm
++getMode() const : GhostMode
++getTimeInCurrentMode() const : double
++getWantedDirection() const : Direction::Cardinal
++goToSpawn() : void
++hasExitedSpawn() : void
++hasTurned() : void
++isBlocked(const std::vector<std::shared_ptr<IEntityModel>> & touchingEntities) : bool
++move() : void
++setMode(GhostMode) : void
++setWantedDirection(Direction::Cardinal d) : void
++update(Direction::Cardinal) : void
+__
+#m_algorithm : ChasingAlgorithm
+#m_amount_of_seconds_until_able_to_turn : double
+#m_canMoveThroughSpawnDoor : bool
+#m_speed : double
+#m_stateStack : GhostModeStack
+#m_wantedDirection : Direction::Cardinal
+}
+class "BlueGhost" as C_0001631347352165460010
+class C_0001631347352165460010 {
++BlueGhost(const Rectangle & pos) : void
+__
+}
+class "PinkGhost" as C_0009721809517362077480
+class C_0009721809517362077480 {
++PinkGhost(const Rectangle & pos) : void
+__
+}
+class "OrangeGhost" as C_0008568517872319374231
+class C_0008568517872319374231 {
++OrangeGhost(const Rectangle & pos) : void
+__
+}
+class "RedGhost" as C_0007374954264640367808
+class C_0007374954264640367808 {
++RedGhost(const Rectangle & pos) : void
+__
+}
+class "Pacman" as C_0004507304836164317916
+class C_0004507304836164317916 {
++Pacman(const Rectangle & pos) : void
+..
++accept(IEntityVisitor & visitor) : void
++die() : void
++getDeathTimer() const : double
++ghostTouches() : void
++goToSpawn() : void
++hasTouchedGhost() const : bool
++resetGhostTouch() : void
++update(Direction::Cardinal) : void
+__
+-m_deathTimer : double
+-m_ghostTouch : bool
+}
+enum "WorldState" as C_0002571621846564505490
+enum C_0002571621846564505490 {
+RUNNING
+VICTORY
+GAME_OVER
+}
+class "World" as C_0018151272839730735401
+class C_0018151272839730735401 {
++World() = default : void
+..
++addGhost(std::shared_ptr<IGhost> ghost) : void
++addNonMovingEntity(std::shared_ptr<IEntityModel>) : void
++getEntitiesInBounds(const Rectangle & boundBox) : std::vector<std::shared_ptr<IEntityModel>>
++getGhosts() const : const std::vector<std::shared_ptr<IGhost>> &
++getNonMovingEntities() const : const std::vector<std::shared_ptr<IEntityModel>> &
++getPacman() const : const std::shared_ptr<Pacman> &
++getState() const : WorldState
+#handleCollectables(const Rectangle & current_hb) : void
++manhattanDecision(const Position & wantedManhattan, const std::shared_ptr<IGhost> & ghost, bool maximizeDistance) : Direction::Cardinal
++possibleDirections(const std::shared_ptr<IGhost> & ghost) : std::set<Direction::Cardinal>
++setPacman(const std::shared_ptr<Pacman> &) : void
+#startPanic() const : void
++update(Direction::Cardinal d) : void
++updateGhosts(Direction::Cardinal d) : void
+#updatePacman(Direction::Cardinal d) : void
+__
+-m_ghosts : std::vector<std::shared_ptr<IGhost>>
+-m_nonMovingEntities : std::vector<std::shared_ptr<IEntityModel>>
+-m_pacman : std::shared_ptr<Pacman>
+-m_worldState : WorldState
+}
+abstract "IEntityFactory" as C_0012094668879782596019
+abstract C_0012094668879782596019 {
+#IEntityFactory() = default : void
++~IEntityFactory() constexpr = default : void
+..
+{abstract} +createBlueGhost(const Rectangle & pos) = 0 : std::shared_ptr<IEntityModel>
+{abstract} +createCoin(const Rectangle & pos) = 0 : std::shared_ptr<IEntityModel>
+{abstract} +createFruit(const Rectangle & pos) = 0 : std::shared_ptr<IEntityModel>
+{abstract} +createOrangeGhost(const Rectangle & pos) = 0 : std::shared_ptr<IEntityModel>
+{abstract} +createPacman(const Rectangle & pos) = 0 : std::shared_ptr<IEntityModel>
+{abstract} +createPinkGhost(const Rectangle & pos) = 0 : std::shared_ptr<IEntityModel>
+{abstract} +createRedGhost(const Rectangle & pos) = 0 : std::shared_ptr<IEntityModel>
+{abstract} +createSpawnWall(const Rectangle & hb) = 0 : std::shared_ptr<IEntityModel>
+{abstract} +createWall(const Rectangle & pos) = 0 : std::shared_ptr<IEntityModel>
+__
+}
+class "Collectable" as C_0015060633442368701954
+class C_0015060633442368701954 {
+#Collectable(const Rectangle & pos, const Direction::Cardinal d) : void
+..
++bePickedUp() : void
++setValue(int) : void
++update(Direction::Cardinal) : void
+__
+#m_isPickedUp : bool
+#m_value : int
+}
+class "Coin" as C_0001178905747249209597
+class C_0001178905747249209597 {
++Coin(const Rectangle & pos) : void
+..
++accept(IEntityVisitor & visitor) : void
+__
+}
+class "Fruit" as C_0004629132936790448470
+class C_0004629132936790448470 {
++Fruit(const Rectangle & pos) : void
+..
++accept(IEntityVisitor & visitor) : void
+__
+}
+enum "CollisionResult" as C_0001240442681067903816
+enum C_0001240442681067903816 {
+NONE
+MOVE_BLOCKED
+SPAWN_WALL_BLOCK
+GHOST_TOUCH
+COIN_PICKED_UP
+FRUIT_PICKED_UP
+}
+abstract "IEntityVisitor" as C_0016496217895219033527
+abstract C_0016496217895219033527 {
++~IEntityVisitor() constexpr = default : void
+..
+{abstract} +visit(Coin & coin) = 0 : void
+{abstract} +visit(Fruit & fruit) = 0 : void
+{abstract} +visit(IGhost & ghost) = 0 : void
+{abstract} +visit(Pacman & pacman) = 0 : void
+{abstract} +visit(SpawnWall & spawn_wall) = 0 : void
+{abstract} +visit(Wall & wall) = 0 : void
+__
+}
+class "PacmanCollisionVisitor" as C_0011923194511959073848
+class C_0011923194511959073848 {
++PacmanCollisionVisitor(CollisionResult & result) : void
+..
++visit(Pacman & target) : void
++visit(IGhost & target) : void
++visit(Wall & target) : void
++visit(Coin & target) : void
++visit(Fruit & target) : void
++visit(SpawnWall & target) : void
+__
+-m_result : CollisionResult &
+}
+class "GhostCollisionVisitor" as C_0018228686360603432416
+class C_0018228686360603432416 {
++GhostCollisionVisitor(CollisionResult & result) : void
+..
++visit(IGhost & target) : void
++visit(Pacman & target) : void
++visit(Wall & target) : void
++visit(SpawnWall & target) : void
++visit(Coin & target) : void
++visit(Fruit & target) : void
+__
+-m_result : CollisionResult &
+}
+class "CollectableVisitor" as C_0001104891744585010412
+class C_0001104891744585010412 {
++visit(Pacman & pacman) : void
++visit(IGhost & ghost) : void
++visit(Wall & wall) : void
++visit(SpawnWall & spawn_wall) : void
++visit(Coin & coin) : void
++visit(Fruit & fruit) : void
+__
+}
+class "CollisionResolver<TargetType>" as C_0002664208989444502347
+class C_0002664208989444502347 {
++CollisionResolver(TargetType & target, CollisionResult & res) : void
+..
++visit(Pacman & initiator) : void
++visit(IGhost & initiator) : void
++visit(Wall & wall) : void
++visit(Coin & coin) : void
++visit(Fruit & fruit) : void
++visit(SpawnWall & spawn_wall) : void
+__
+-m_result : CollisionResult &
+-m_target : TargetType &
+}
+class "CollisionHandler" as C_0010970872333833877452
+class C_0010970872333833877452 {
++CollisionHandler(IEntityModel & initiator) : void
+..
++getResult() const : const CollisionResult &
++visit(Pacman & target) : void
++visit(IGhost & target) : void
++visit(Wall & target) : void
++visit(Coin & target) : void
++visit(Fruit & target) : void
++visit(SpawnWall & target) : void
+__
+-m_initiator : IEntityModel &
+-m_result : CollisionResult
+}
+class "SpawnWall" as C_0004816459710782532790
+class C_0004816459710782532790 {
++SpawnWall(const Rectangle & hitBox) : void
+..
++accept(IEntityVisitor & visitor) : void
+__
+}
+class "Wall" as C_0006911244553188142616
+class C_0006911244553188142616 {
++Wall(const Rectangle & pos) : void
+..
++accept(IEntityVisitor & visitor) : void
+__
+}
+class "WorldCreator" as C_0011794968495555935393
+class C_0011794968495555935393 {
+{static} +createWorld(const std::string & filename, const IWorldConfigParser & parser, const std::shared_ptr<IEntityFactory> & factory) : World
+__
+}
+abstract "IWorldConfigParser" as C_0005436999878423577125
+abstract C_0005436999878423577125 {
++~IWorldConfigParser() constexpr = default : void
+..
+{abstract} +parse(const std::string & filename) const = 0 : std::vector<std::vector<char>>
+__
+}
+class "WorldAsciiGridParser" as C_0006952528412172170108
+class C_0006952528412172170108 {
++parse(const std::string & filename) const : std::vector<std::vector<char>>
+__
+}
+class "sf::Rect<float>" as C_0010911321927517682690
+class C_0010911321927517682690 {
+__
+}
+class "sf::Rect<int>" as C_0012660383484382188671
+class C_0012660383484382188671 {
+__
+}
+abstract "IState" as C_0013750008952139163604
+abstract C_0013750008952139163604 {
+#IState() = default : void
++~IState() constexpr = default : void
+..
++getRequestedPops() const : unsigned int
++getRequestedState() : std::unique_ptr<IState>
+{abstract} +handleInput(const sf::Event & event) = 0 : void
++isRequestedState() const : bool
+{abstract} +update(Direction::Cardinal direction) = 0 : void
+__
+#m_requestedPops : unsigned int
+#m_requestedState : std::unique_ptr<IState>
+}
+class "StateManager" as C_0013944663007826553728
+class C_0013944663007826553728 {
++StateManager() : void
+..
++empty() const : bool
++handleInput(const sf::Event &) : void
++update(Direction::Cardinal) : void
+__
+}
+class "Camera" as C_0005049148943034209802
+class C_0005049148943034209802 {
+-Camera(sf::VideoMode mode, const sf::String & title, sf::Uint32 style) : void
++Camera(const Camera &) = deleted : void
+..
++operator=(const Camera &) = deleted : Camera &
+..
+{static} +getInstance() : Camera &
++getViewport() const : const sf::FloatRect &
++getWindow() : sf::RenderWindow &
++handleEvent(const sf::Event & event) : void
++resetView() : void
+__
+-m_currentViewport : sf::FloatRect
+-m_view : sf::View
+-m_window : sf::RenderWindow
+}
+class "MenuState" as C_0013166903766216927070
+class C_0013166903766216927070 {
++MenuState() : void
+..
++handleInput(const sf::Event & event) : void
++setupHighScores() : void
++update(Direction::Cardinal d) : void
+__
+-m_highScoreTexts : std::vector<sf::Text>
+-m_pacmanText : sf::Text
+-m_playText : sf::Text
+-m_refreshClock : sf::Clock
+}
+class "Game" as C_0017470460303031448044
+class C_0017470460303031448044 {
++Game() = default : void
+..
++run() : void
+__
+-m_sm : StateManager
+}
+enum "Assets::SpriteDefinition" as C_0004776861670659738187
+enum C_0004776861670659738187 {
+CoinBase
+FruitBase
+GhostBlueBase
+GhostOrangeBase
+GhostPanicBase
+GhostPinkBase
+GhostRedBase
+PacmanBase
+WallBase
+PacmanDeathBase
+GhostDeathBase
+SpawnWallBase
+GhostPanicAlternate
+}
+class "ViewCompatibleEntityFactory" as C_0000467803920601929937
+class C_0000467803920601929937 {
++ViewCompatibleEntityFactory(std::vector<std::shared_ptr<IObserver>> & viewStorage) : void
+..
++createBlueGhost(const Rectangle & p) : std::shared_ptr<IEntityModel>
++createCoin(const Rectangle & p) : std::shared_ptr<IEntityModel>
+-createEntityWithView<Model,View>(Rectangle p) : std::shared_ptr<IEntityModel>
++createFruit(const Rectangle & p) : std::shared_ptr<IEntityModel>
++createOrangeGhost(const Rectangle & p) : std::shared_ptr<IEntityModel>
++createPacman(const Rectangle & p) : std::shared_ptr<IEntityModel>
++createPinkGhost(const Rectangle & p) : std::shared_ptr<IEntityModel>
++createRedGhost(const Rectangle & p) : std::shared_ptr<IEntityModel>
++createSpawnWall(const Rectangle & hb) : std::shared_ptr<IEntityModel>
++createWall(const Rectangle & p) : std::shared_ptr<IEntityModel>
+__
+-m_viewStorage : std::vector<std::shared_ptr<IObserver>> &
+}
+class "IEntityView" as C_0012337935480206447701
+class C_0012337935480206447701 {
+#IEntityView(Assets::TextureLocation texture, std::shared_ptr<IEntityModel> model) : void
+..
++animate() : void
++getCoupledEntity() : std::shared_ptr<IEntityModel>
++getCurrentTextureOffset() const : unsigned int
++update() : void
+__
+#m_amountOfTextures : unsigned int
+#m_animationCycleMovingUp : bool
+-m_coupledEntity : std::shared_ptr<IEntityModel>
+#m_currentSprite : Assets::TextureLocation
+#m_currentTextureOffset : unsigned int
+-m_timeAccumulator : double
+-m_timePerFrame : const double
+}
+class "CoinView" as C_0005173968724854290695
+class C_0005173968724854290695 {
++CoinView(std::shared_ptr<IEntityModel> model) : void
+__
+}
+class "FruitView" as C_0001046206398110799661
+class C_0001046206398110799661 {
++FruitView(std::shared_ptr<IEntityModel> model) : void
+__
+}
+class "IDirectionalEntityView" as C_0012147383362196492571
+class C_0012147383362196492571 {
+#IDirectionalEntityView(Assets::TextureLocation m, std::shared_ptr<IEntityModel> n, int amountOfTextures) : void
+..
++update() : void
+__
+#m_topBase : int
+}
+class "IGhostView" as C_0009148694509863768447
+class C_0009148694509863768447 {
+#IGhostView(Assets::TextureLocation texture, std::shared_ptr<IEntityModel> model) : void
+..
++update() : void
+__
+-m_baseSprite : Assets::TextureLocation
+}
+class "RedGhostView" as C_0003457784108768294742
+class C_0003457784108768294742 {
++RedGhostView(std::shared_ptr<IEntityModel> model) : void
+__
+}
+class "PinkGhostView" as C_0015402460467867663767
+class C_0015402460467867663767 {
++PinkGhostView(std::shared_ptr<IEntityModel> model) : void
+__
+}
+class "BlueGhostView" as C_0008883598113777351762
+class C_0008883598113777351762 {
++BlueGhostView(std::shared_ptr<IEntityModel> model) : void
+__
+}
+class "OrangeGhostView" as C_0009401511369068146440
+class C_0009401511369068146440 {
++OrangeGhostView(std::shared_ptr<IEntityModel> model) : void
+__
+}
+class "PacmanView" as C_0002322681636994404849
+class C_0002322681636994404849 {
++PacmanView(std::shared_ptr<IEntityModel> model) : void
+..
++update() : void
+__
+-m_dying : bool
+}
+class "ScoreView" as C_0014372392725281893514
+class C_0014372392725281893514 {
++ScoreView() : void
+..
++update() : void
+__
+-m_livesText : sf::Text
+-m_scoreText : sf::Text
+}
+class "SpawnWallView" as C_0014909923837807186289
+class C_0014909923837807186289 {
++SpawnWallView(const std::shared_ptr<IEntityModel> & model) : void
+__
+}
+class "WallView" as C_0013979720756556751691
+class C_0013979720756556751691 {
++WallView(std::shared_ptr<IEntityModel> model) : void
+__
+}
+class "GameOverState" as C_0007202689713328079620
+class C_0007202689713328079620 {
++GameOverState(unsigned int finalScore) : void
+..
++handleInput(const sf::Event & event) : void
++update(Direction::Cardinal d) : void
+__
+-m_finalScore : const unsigned int
+-m_gameOverText : sf::Text
+-m_playText : sf::Text
+-m_pressAnyKeyText : sf::Text
+}
+class "LevelState" as C_0002957172757782269839
+class C_0002957172757782269839 {
++LevelState() : void
+..
++handleInput(const sf::Event & event) : void
++update(Direction::Cardinal d) : void
+__
+-m_factory : std::shared_ptr<ViewCompatibleEntityFactory>
+-m_viewVector : std::vector<std::shared_ptr<IObserver>>
+-m_world : World
+}
+class "PausedState" as C_0008197101441408874537
+class C_0008197101441408874537 {
++PausedState() : void
+..
++handleInput(const sf::Event & event) : void
++update(Direction::Cardinal direction) : void
+__
+-m_pacmanText : sf::Text
+-m_playText : sf::Text
+}
+class "VictoryState" as C_0018300438751291314864
+class C_0018300438751291314864 {
++VictoryState(unsigned int level, unsigned int currentScore) : void
+..
++handleInput(const sf::Event & event) : void
++update(Direction::Cardinal d) : void
+__
+-m_currentScore : unsigned int
+-m_level : unsigned int
+-m_pressAnyKeyText : sf::Text
+-m_victoryText : sf::Text
+}
+C_0010304260020277282950 <|-- C_0008972945966905514525
+C_0012588535619499416747 <|-- C_0008598544415685229867
+C_0008598544415685229867 <|-- C_0017069165727288127347
+C_0017069165727288127347 <|-- C_0003714358718179235535
+C_0003714358718179235535 <|-- C_0001631347352165460010
+C_0003714358718179235535 <|-- C_0009721809517362077480
+C_0003714358718179235535 <|-- C_0008568517872319374231
+C_0003714358718179235535 <|-- C_0007374954264640367808
+C_0017069165727288127347 <|-- C_0004507304836164317916
+C_0008598544415685229867 <|-- C_0015060633442368701954
+C_0015060633442368701954 <|-- C_0001178905747249209597
+C_0015060633442368701954 <|-- C_0004629132936790448470
+C_0016496217895219033527 <|-- C_0011923194511959073848
+C_0016496217895219033527 <|-- C_0018228686360603432416
+C_0016496217895219033527 <|-- C_0001104891744585010412
+C_0016496217895219033527 <|-- C_0002664208989444502347
+C_0016496217895219033527 <|-- C_0010970872333833877452
+C_0008598544415685229867 <|-- C_0004816459710782532790
+C_0008598544415685229867 <|-- C_0006911244553188142616
+C_0005436999878423577125 <|-- C_0006952528412172170108
+C_0013750008952139163604 <|-- C_0013166903766216927070
+C_0012094668879782596019 <|-- C_0000467803920601929937
+C_0010304260020277282950 <|-- C_0012337935480206447701
+C_0012337935480206447701 <|-- C_0005173968724854290695
+C_0012337935480206447701 <|-- C_0001046206398110799661
+C_0012337935480206447701 <|-- C_0012147383362196492571
+C_0012147383362196492571 <|-- C_0009148694509863768447
+C_0009148694509863768447 <|-- C_0003457784108768294742
+C_0009148694509863768447 <|-- C_0015402460467867663767
+C_0009148694509863768447 <|-- C_0008883598113777351762
+C_0009148694509863768447 <|-- C_0009401511369068146440
+C_0012147383362196492571 <|-- C_0002322681636994404849
+C_0010304260020277282950 <|-- C_0014372392725281893514
+C_0012337935480206447701 <|-- C_0014909923837807186289
+C_0012337935480206447701 <|-- C_0013979720756556751691
+C_0013750008952139163604 <|-- C_0007202689713328079620
+C_0013750008952139163604 <|-- C_0002957172757782269839
+C_0013750008952139163604 <|-- C_0008197101441408874537
+C_0013750008952139163604 <|-- C_0018300438751291314864
+
+'Generated with clang-uml, version 0.6.2
+'LLVM version clang version 21.1.2
+@enduml
