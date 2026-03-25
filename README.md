@@ -22,6 +22,8 @@ Mijn notities zijn vrij te gebruiken voor iedereen die er iets aan heeft.
 
 | Vak                                 | Docent(en)                                      |
 |-------------------------------------|-------------------------------------------------|
+| Compilers                           | prof. Guillermo Alberto Perez                   |
+| Computernetwerken                   | prof. Jeroen Famaey                             |
 | Geavanceerd Programmeren            | prof. Brent Van Bladel                          |
 | Inleiding Databases                 | prof. Floris Geerts                             |
 | Linear Algebra                      | prof. Masoud Ahookhosh                          |
