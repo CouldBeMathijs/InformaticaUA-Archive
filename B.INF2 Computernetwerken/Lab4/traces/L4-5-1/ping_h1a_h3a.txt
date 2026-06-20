@@ -1,0 +1,291 @@
+PING fc00:0:3:a::1(fc00:0:3:a::1) 56 data bytes
+64 bytes from fc00:0:3:a::1: icmp_seq=1 ttl=60 time=0.180 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=2 ttl=60 time=0.157 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=3 ttl=60 time=0.277 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=4 ttl=60 time=0.165 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=5 ttl=60 time=0.168 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=6 ttl=60 time=0.196 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=7 ttl=60 time=0.180 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=8 ttl=60 time=0.250 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=9 ttl=60 time=0.368 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=10 ttl=60 time=0.151 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=11 ttl=60 time=0.164 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=12 ttl=60 time=0.166 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=13 ttl=60 time=0.287 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=14 ttl=60 time=0.246 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=15 ttl=60 time=0.290 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=16 ttl=60 time=0.250 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=17 ttl=60 time=0.218 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=18 ttl=60 time=0.145 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=19 ttl=60 time=0.148 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=20 ttl=60 time=0.249 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=21 ttl=60 time=0.164 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=22 ttl=60 time=0.044 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=23 ttl=60 time=0.046 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=24 ttl=60 time=0.071 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=25 ttl=60 time=0.087 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=26 ttl=60 time=0.070 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=27 ttl=60 time=0.099 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=28 ttl=60 time=0.059 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=29 ttl=60 time=0.050 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=30 ttl=60 time=0.037 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=31 ttl=60 time=0.025 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=32 ttl=60 time=0.050 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=33 ttl=60 time=0.039 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=34 ttl=60 time=0.034 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=35 ttl=60 time=0.025 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=36 ttl=60 time=0.062 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=37 ttl=60 time=0.049 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=38 ttl=60 time=0.052 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=39 ttl=60 time=0.066 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=40 ttl=60 time=0.067 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=41 ttl=60 time=0.071 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=42 ttl=60 time=0.105 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=43 ttl=60 time=0.062 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=44 ttl=60 time=0.065 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=45 ttl=60 time=0.059 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=46 ttl=60 time=0.063 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=47 ttl=60 time=0.062 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=48 ttl=60 time=0.074 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=49 ttl=60 time=0.059 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=50 ttl=60 time=0.078 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=51 ttl=60 time=0.041 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=52 ttl=60 time=0.060 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=53 ttl=60 time=0.062 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=54 ttl=60 time=0.050 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=55 ttl=60 time=0.042 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=56 ttl=60 time=0.038 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=57 ttl=60 time=0.051 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=58 ttl=60 time=0.053 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=59 ttl=60 time=0.053 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=60 ttl=60 time=0.036 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=61 ttl=60 time=0.059 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=62 ttl=60 time=0.038 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=63 ttl=60 time=0.022 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=64 ttl=60 time=0.021 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=65 ttl=60 time=0.017 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=66 ttl=60 time=0.020 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=67 ttl=60 time=0.021 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=68 ttl=60 time=0.025 ms
+From fc00:0:1:abc::a1 icmp_seq=116 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=117 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=118 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=119 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=120 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=121 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=122 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=123 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=124 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=125 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=126 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=127 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=128 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=129 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=130 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=131 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=132 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=133 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=134 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=135 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=136 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=137 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=138 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=139 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=140 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=141 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=142 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=143 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=144 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=145 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=146 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=147 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=148 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=149 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=150 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=151 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=152 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=153 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=154 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=155 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=156 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=157 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=158 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=159 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=160 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=161 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=162 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=163 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=164 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=165 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=166 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=167 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=168 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=169 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=170 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=171 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=172 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=173 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=174 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=175 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=176 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=177 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=178 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=179 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=180 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=181 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=182 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=183 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=184 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=185 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=186 Destination unreachable: Address unreachable
+From fc00:0:1:abc::a1 icmp_seq=187 Destination unreachable: Address unreachable
+64 bytes from fc00:0:3:a::1: icmp_seq=207 ttl=57 time=0.096 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=208 ttl=57 time=0.041 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=209 ttl=57 time=0.048 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=210 ttl=57 time=0.063 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=211 ttl=57 time=0.034 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=212 ttl=57 time=0.051 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=213 ttl=57 time=0.084 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=214 ttl=57 time=0.069 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=215 ttl=57 time=0.079 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=216 ttl=57 time=0.074 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=217 ttl=57 time=0.055 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=218 ttl=57 time=0.077 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=219 ttl=57 time=0.058 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=220 ttl=57 time=0.074 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=221 ttl=57 time=0.057 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=222 ttl=57 time=0.042 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=223 ttl=57 time=0.073 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=224 ttl=57 time=0.076 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=225 ttl=57 time=0.066 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=226 ttl=57 time=0.054 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=227 ttl=59 time=0.039 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=228 ttl=59 time=0.075 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=229 ttl=59 time=0.055 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=230 ttl=59 time=0.037 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=231 ttl=59 time=0.057 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=232 ttl=59 time=0.051 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=233 ttl=59 time=0.055 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=234 ttl=59 time=0.072 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=235 ttl=59 time=0.057 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=236 ttl=59 time=0.070 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=237 ttl=59 time=0.037 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=238 ttl=59 time=0.055 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=239 ttl=59 time=0.083 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=240 ttl=59 time=0.026 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=241 ttl=59 time=0.029 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=242 ttl=59 time=0.066 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=243 ttl=59 time=0.081 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=244 ttl=59 time=0.065 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=245 ttl=59 time=0.054 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=246 ttl=59 time=0.064 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=247 ttl=59 time=0.065 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=248 ttl=59 time=0.066 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=249 ttl=59 time=0.050 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=250 ttl=59 time=0.039 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=251 ttl=59 time=0.025 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=252 ttl=59 time=0.039 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=253 ttl=59 time=0.068 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=254 ttl=59 time=0.062 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=255 ttl=59 time=0.054 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=256 ttl=59 time=0.052 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=257 ttl=59 time=0.062 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=258 ttl=59 time=0.060 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=259 ttl=59 time=0.061 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=260 ttl=59 time=0.032 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=261 ttl=59 time=0.027 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=262 ttl=59 time=0.064 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=263 ttl=59 time=0.062 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=264 ttl=59 time=0.133 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=265 ttl=59 time=0.042 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=266 ttl=59 time=0.041 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=267 ttl=59 time=0.034 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=268 ttl=59 time=0.032 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=269 ttl=59 time=0.062 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=270 ttl=59 time=0.029 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=271 ttl=59 time=0.024 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=272 ttl=59 time=0.028 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=273 ttl=59 time=0.028 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=274 ttl=59 time=0.036 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=275 ttl=59 time=0.024 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=276 ttl=59 time=0.044 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=277 ttl=59 time=0.069 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=278 ttl=59 time=0.035 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=279 ttl=59 time=0.058 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=280 ttl=59 time=0.020 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=281 ttl=59 time=0.015 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=282 ttl=59 time=0.023 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=283 ttl=59 time=0.017 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=284 ttl=59 time=0.055 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=285 ttl=59 time=0.015 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=286 ttl=59 time=0.020 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=287 ttl=59 time=0.024 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=288 ttl=59 time=0.020 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=289 ttl=59 time=0.023 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=290 ttl=59 time=0.022 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=291 ttl=59 time=0.017 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=292 ttl=59 time=0.041 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=293 ttl=59 time=0.076 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=294 ttl=59 time=0.062 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=295 ttl=59 time=0.076 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=296 ttl=59 time=0.066 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=297 ttl=59 time=0.051 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=298 ttl=59 time=0.059 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=299 ttl=59 time=0.057 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=300 ttl=59 time=0.038 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=301 ttl=59 time=0.041 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=302 ttl=59 time=0.077 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=303 ttl=59 time=0.044 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=304 ttl=59 time=0.054 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=305 ttl=59 time=0.036 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=306 ttl=59 time=0.028 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=307 ttl=59 time=0.039 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=308 ttl=59 time=0.030 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=309 ttl=60 time=0.031 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=310 ttl=60 time=0.054 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=311 ttl=60 time=0.043 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=312 ttl=60 time=0.061 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=313 ttl=60 time=0.063 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=314 ttl=60 time=0.059 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=315 ttl=60 time=0.029 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=316 ttl=60 time=0.072 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=317 ttl=60 time=0.102 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=318 ttl=60 time=0.118 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=319 ttl=60 time=0.044 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=320 ttl=60 time=0.054 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=321 ttl=60 time=0.068 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=322 ttl=60 time=0.141 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=323 ttl=60 time=0.068 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=324 ttl=60 time=0.041 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=325 ttl=60 time=0.271 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=326 ttl=60 time=0.318 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=327 ttl=60 time=0.129 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=328 ttl=60 time=0.305 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=329 ttl=60 time=0.278 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=330 ttl=60 time=0.267 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=331 ttl=60 time=0.286 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=332 ttl=60 time=0.268 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=333 ttl=60 time=0.274 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=334 ttl=60 time=0.355 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=335 ttl=60 time=0.155 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=336 ttl=60 time=0.258 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=337 ttl=60 time=0.223 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=338 ttl=60 time=0.283 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=339 ttl=60 time=0.272 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=340 ttl=60 time=0.413 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=341 ttl=60 time=0.255 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=342 ttl=60 time=0.295 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=343 ttl=60 time=0.272 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=344 ttl=60 time=0.241 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=345 ttl=60 time=0.306 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=346 ttl=60 time=0.113 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=347 ttl=60 time=0.305 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=348 ttl=60 time=0.263 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=349 ttl=60 time=0.184 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=350 ttl=60 time=0.229 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=351 ttl=60 time=0.332 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=352 ttl=60 time=0.230 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=353 ttl=60 time=0.178 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=354 ttl=60 time=0.153 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=355 ttl=60 time=0.274 ms
+64 bytes from fc00:0:3:a::1: icmp_seq=356 ttl=60 time=0.300 ms

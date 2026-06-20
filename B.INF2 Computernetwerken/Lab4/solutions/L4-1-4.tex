@@ -1,0 +1,9 @@
+Wat hetzelfde blijft:\\
+- De traceroute begint met een hop-limit van 1\\
+- De traceroute verhoogt per mislukte poging (time-out) de hop-limit met 1\\
+- De traceroute bereikt h3 na 2 time-outs\\
+
+Pakket 1-6 (zonder -I):\\
+- Het pakket waarvan gehoopt wordt dat het h3 bereikt is een UDP-pakket dat wordt verstuurd naar een poort die naar alle waarschiujnlijkheid geen UDP kan ontvangen, traceroute stopt zodra h3 antwoordt dat deze poort unreachable is (maar dus h3 wel, anders zou deze niet kunnen antwoorden) (in dit geval pakket 6)\\
+Pakket 15-20 (met -I):\\
+- Men probeert h3 te pingen, zodra het ping-pakket aankomt bij h3 stuurt deze een ping-reply (pakket 20), waardoor traceroute weet dat het pakket goed is aangekomen

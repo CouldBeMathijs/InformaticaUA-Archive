@@ -1,0 +1,6 @@
+- Als de cache niet leeg zou zijn, zou je de fragmentatie niet meer zien. Omdat packet 1 dan direct de juiste packet grootte zou gebruiken. \\
+
+- Er zouden dan geen ICMPv6 packets meer zijn, want het weet de limiet voor naar h2 te sturen al. Data wordt direct juist gefragmenteerd en correct ontvangen.\\
+
+- Dit hangt af van de Don't fragment bit: Als deze aan staat, dan zal je geen ICMP packets meer vinden. De zender weet al wat de limiet is. 
+Als deze uit staat, zal het gewoon exact hetzelfde zijn als ervoor, de router zal de packets zelf fragmenteren. 

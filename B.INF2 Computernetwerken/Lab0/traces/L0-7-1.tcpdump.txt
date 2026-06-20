@@ -1,0 +1,13 @@
+11:41:52.078184 IP6 fe80::c0bf:9fff:fe4b:8c86 > ff02::2: ICMP6, router solicitation, length 16
+11:41:52.078196 IP6 fe80::e0a6:79ff:fe33:c3fb > ff02::2: ICMP6, router solicitation, length 16
+11:41:52.078204 IP6 fe80::8452:b0ff:fe9e:5b0a > ff02::2: ICMP6, router solicitation, length 16
+11:41:52.275675 IP6 fe80::8452:b0ff:fe9e:5b0a.5353 > ff02::fb.5353: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:41:52.381601 IP6 fe80::e0a6:79ff:fe33:c3fb.5353 > ff02::fb.5353: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:41:54.126361 IP6 fe80::a818:e4ff:fed6:e09d > ff02::2: ICMP6, router solicitation, length 16
+11:41:57.015173 IP6 fe80::c0bf:9fff:fe4b:8c86 > ff02::1:ff00:10: ICMP6, neighbor solicitation, who has fc00:0:0:1::10, length 32
+11:41:57.015228 IP6 fc00:0:0:1::10 > fe80::c0bf:9fff:fe4b:8c86: ICMP6, neighbor advertisement, tgt is fc00:0:0:1::10, length 32
+11:41:57.015356 IP6 fc00:0:0:1::1 > ff02::1:ff00:10: ICMP6, neighbor solicitation, who has fc00:0:0:1::10, length 32
+11:41:57.015390 IP6 fc00:0:0:1::10 > fc00:0:0:1::1: ICMP6, neighbor advertisement, tgt is fc00:0:0:1::10, length 32
+11:41:57.015403 IP6 fc00:0:0:1::1 > fc00:1234::1: ICMP6, echo request, id 47686, seq 1, length 64
+11:41:57.015432 IP6 fc00:0:0:1::10 > fc00:0:0:1::1: ICMP6, destination unreachable, unreachable route fc00:1234::1, length 112
+

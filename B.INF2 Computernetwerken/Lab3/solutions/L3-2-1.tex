@@ -1,0 +1,9 @@
+IPv4: eth1 stuurt het pakket volledig naar de router, de router splitst het pakket en stuurt het op gepaste wijze door naar eth0\\
+
+Hierbij maken ze gebruik van de header, ze zetten het "More fragments" bitje op 1, Dus weet de ontvanger dat als er twee packets met hetzelfde indentification nummer aankomt dat deze geframgenteerd is.\\
+
+IPv6: De router stuurt een \textit{Packet Too Big} packet (ICMPv6) naar h1, om aan te geven dat er gefragmenteerd moet worden.\\
+Hierbij maken ze gebruik van de header, maar in dit geval wordt die 8 bytes groter dan normaal, hierin staat de identification, offset en de more fragments bit. \\
+
+Bij IPv4 blijft de header altijd 20 bytes en bij IPv6 is die altijd 40, buiten als er fragmentatie is dan wordt deze 48.\\
+

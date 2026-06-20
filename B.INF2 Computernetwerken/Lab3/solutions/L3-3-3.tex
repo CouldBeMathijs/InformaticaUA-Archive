@@ -1,0 +1,31 @@
+
+\begin{itemize}
+    \item Discover (1, 15) 
+    \begin{itemize}
+        \item Source: 0.0.0.0
+        \item Destination: 255.255.255.255
+    \end{itemize}
+    \item Offer (3, 17)
+    \begin{itemize}
+        \item Source: 10.0.1.1
+        \item Destination: 10.0.1.50 (3), 10.0.1.51 (17)
+    \end{itemize}
+    \item Request 
+    \begin{itemize}
+        \item Pakket (4, 18)
+        \begin{itemize}
+            \item Source: 0.0.0.0
+            \item Destination: 255.255.255.255
+        \end{itemize}
+        \item Pakket (13, 31, 33, 43, 49)
+        \begin{itemize} 
+            \item Source: 10.0.1.50 (13, 31, 43), 10.0.1.51  (33, 49)
+            \item Destination: 10.0.1.1
+        \end{itemize}
+    \end{itemize}
+    \item ACK (6, 14, 20, 32, 34, 44, 50)
+    \begin{itemize}
+        \item Source: 10.0.1.1
+        \item Destination: 10.0.1.50, 10.0.1.51 
+    \end{itemize}
+\end{itemize}

@@ -1,0 +1,5 @@
+\includetrace{ping.txt}
+\includetrace{tcpdump.txt}
+1. Ping noemt de host onbereikbaar, en TCP laat enkel de heengaande pakketten zien, maar toont geen enkel antwoord.\\
+2. Er worden wel pakketten ontvangen. Zelfs zonder antwoord registreert tcpdump de uitgaande ICMPv6-verzoeken op de interface h1-eth0.\\
+3. Alle Linux PC's hebben geantwoord op de ff02::1, h1 zelf incluis. ff02::1 is een groep waar alle bereikbare hosts automatisch deel van uitmaken en op horen te antwoorden, als ze voldoen aan de IPv6-standaard.

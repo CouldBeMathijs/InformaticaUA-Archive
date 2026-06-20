@@ -1,0 +1,3 @@
+In plaats van dat pakketten direct via de fysieke laag (GetFrameExchangeManager()->StartTransmission()) worden verzonden zodra ze in de MAC-laag aankomen, dwingt de Slotted Aloha-aanpassing het station om te wachten tot het begin van het eerstvolgende tijdslot.\\
+
+De huidige simulatietijd ($T_{now}$) wordt gedeeld door de constante slotduur ($\tau$) met behulp van de modulo-operator  De resterende tijd tot het volgende slot wordt berekend en als delay meegegeven aan de Simulator::Schedule-functie. Hierdoor starten alle transmissies synchroon op de grenzen van de slots.

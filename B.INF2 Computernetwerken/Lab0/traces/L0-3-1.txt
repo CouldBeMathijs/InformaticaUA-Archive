@@ -1,0 +1,3 @@
+mininet> ip address show
+address | unknown IP 
+show | unknown IP 

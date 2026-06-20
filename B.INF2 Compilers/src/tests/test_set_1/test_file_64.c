@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+#include "some_header.h"
+
+#define bool int
+#define true 1
+#define false 0
+
+int main() {
+    int x = some_func(5, true);
+	printf("%d\n", x);
+}
+

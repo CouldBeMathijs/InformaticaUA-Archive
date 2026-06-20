@@ -1,0 +1,34 @@
+start DOWN is pakket 23 in de trace
+
+start UP is pakket 1148 in de trace
+
+
+\textbf{DOWN}\\
+Elke router stuurt om de 5 seconden een Hello-packet, als hij 20 seconden niets hoort van zijn buurman, ziet hij deze als dood, hierna start de router een Link State flood om de andere nodes in het netwerk van deze verandering op de hoogte te stellen, ook incrementeerd het zijn sequence nummer met 1 en reset het zijn age naar 0.\\
+Relevante fields zijn:
+LS Sequence Number: Incrementeert steeds bij een update, er wordt enkel rekening gehouden met de meest up-to-date pakketen, zijnde die met het hoogste sequence number.\\
+LS Age: Begint bij 0, incrementeert elke seconden met een maximum van een uur, om oude LSA's te verwijderen.\\
+Advertising Router: Router ID van de router die deze link heeft aangemaakt.\\
+Number of LSAs: aantal actieve verbindingen\\
+
+\textbf{UP}\\
+Wanneer de router opnieuw Hello-pakketten ontvangt van een buurman die voorheen als dood werd beschouwd en de verbinding succesvol is hersteld (of wanneer een nieuwe verbinding wordt opgezet), start de router opnieuw een Link State flood om de andere nodes in het netwerk op de hoogte te brengen van deze actieve status. Ook nu incrementeert hij zijn sequence nummer met 1 ten opzichte van de vorige update en reset hij de age naar 0.\\
+De flood begint hier met het uitwisselen van de database met de nieuwe node
+Relevante fields zijn:
+LS Sequence Number: Incrementeert bij deze nieuwe update weer met 1. Omdat er enkel rekening wordt gehouden met het hoogste sequence number, zorgt dit ervoor dat de eerdere "DOWN" status wordt overschreven door deze nieuwe "UP" status.\\
+LS Age: Begint opnieuw bij 0 op het moment dat deze nieuwe LSA wordt gegenereerd.\\
+Advertising Router: Router ID van de router die adverteert dat zijn verbinding weer actief en hersteld is.\\
+Number of LSAs: Het aantal actieve verbindingen (of het aantal links binnen de LSA) zal nu weer verhoogd zijn doordat de link opnieuw operationeel is.\\
+
+Relevante fields:\\
+Bij LS request: LS type: De router vraagt om een specifiek Type LSA.\\
+Link State ID: het specifieke object dat wordt opgevraagd.\\
+Advertising router: Het ID van de router die de informatie origineel heeft gemaakt.\\
+
+
+Bij DB description:\\
+De source OSPF router: het unieke ID van de router dat dit packet heeft verzonden.\\
+DB sequence: een uniek nummer zodat er geen data verloren gaat. \\
+Description flags om ervoor te zorgen dat de hiërarchie goed blijft.\\
+
+

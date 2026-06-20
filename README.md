@@ -1,4 +1,6 @@
 # Archief Opdrachten Opleiding Informatica aan de Universiteit Antwerpen
+Laatste commit - juni 2026: Het eerste semester van deze richting lag me echt, maar helaas werd het steeds theoretischer en floeër naarmate de semesters volgden. Daarom besloot ik in maart dat 2025-2026 mijn laatste jaar aan de UAntwerpen zou worden - op naar nieuwe uitdagingen. Dit archief blijft hier voor afzienbare tijd staan, waarschijnlijk tot GitHub zich eens zo misdraagt dat ik m'n account verwijder.
+
 _Door CouldBeMathijs_
 
 Mijn notities zijn vrij te gebruiken voor iedereen die er iets aan heeft.

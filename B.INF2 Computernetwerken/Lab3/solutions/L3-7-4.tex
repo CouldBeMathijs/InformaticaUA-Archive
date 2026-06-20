@@ -1,0 +1,5 @@
+De ping sessie kan blijven doorgaan, en heeft geen last van de valid-lifetime, omdat het telkens een ander adres kiest. SSH aan de andere kant heeft hier wel last van en zal stoppen als het adres vervalt. \\
+
+Omdat ping stateless is, het is geen echte sessie, elke ping is een losse vraag/antwoord. \\
+
+SSH is stateful, het heeft een vaste verbinding. Die verbonden is met een tuple, waar het IP-adres van belang is. 

@@ -1,0 +1,29 @@
+computernetwerken@computernetwerken:~/ns3-student/src/wifi/model$ cat slotted_aloha.diff 
+diff --git a/src/wifi/model/adhoc-aloha-mac.cc b/src/wifi/model/adhoc-aloha-mac.cc
+index aecb91d9d..a905baeb2 100644
+--- a/src/wifi/model/adhoc-aloha-mac.cc
++++ b/src/wifi/model/adhoc-aloha-mac.cc
+@@ -80,7 +80,14 @@ AdhocAlohaMac::Enqueue(Ptr<Packet> packet, Mac48Address to)
+         GetTxop ()->Enqueue (mpdu);
+         auto width = GetWifiPhy ()->GetChannelWidth();
+         
+-        GetFrameExchangeManager ()->StartTransmission (GetTxop (), width);
++       Time slotDuration = MicroSeconds(1444); 
++
++       Time now = Simulator::Now();
++       Time remainder = now % slotDuration;
++       Time delay = (remainder == NanoSeconds(0)) ? NanoSeconds(0) : (slotDuration - remainder);
++
++       Simulator::Schedule (delay, &FrameExchangeManager::StartTransmission,
++                            GetFrameExchangeManager (), GetTxop (), width);
+       }
+ }
+ 
+@@ -113,7 +123,7 @@ AdhocAlohaMac::Receive(Ptr<const WifiMpdu> mpdu, uint8_t linkId)
+ 
+     // Invoke the receive handler of our parent class to deal with any
+     // other frames. Specifically, this will handle Block Ack-related
+-    // Management Action frames.
++    // Management Action frameos.
+     WifiMac::Receive(mpdu, linkId);
+ }

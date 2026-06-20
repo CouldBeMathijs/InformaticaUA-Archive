@@ -1,0 +1,39 @@
+lease {
+  interface "h3-eth0";
+  fixed-address 10.0.2.50;
+  option subnet-mask 255.255.255.0;
+  option routers 10.0.2.1;
+  option dhcp-lease-time 120;
+  option dhcp-message-type 5;
+  option domain-name-servers 8.8.8.8;
+  option dhcp-server-identifier 10.0.2.1;
+  renew 1 2026/03/30 15:20:29;
+  rebind 1 2026/03/30 15:21:14;
+  expire 1 2026/03/30 15:21:29;
+}
+lease {
+  interface "h3-eth0";
+  fixed-address 10.0.2.50;
+  option subnet-mask 255.255.255.0;
+  option routers 10.0.2.1;
+  option dhcp-lease-time 120;
+  option dhcp-message-type 5;
+  option domain-name-servers 8.8.8.8;
+  option dhcp-server-identifier 10.0.2.1;
+  renew 1 2026/03/30 15:21:21;
+  rebind 1 2026/03/30 15:22:14;
+  expire 1 2026/03/30 15:22:29;
+}
+lease {
+  interface "h3-eth0";
+  fixed-address 10.0.2.50;
+  option subnet-mask 255.255.255.0;
+  option routers 10.0.2.1;
+  option dhcp-lease-time 120;
+  option dhcp-message-type 5;
+  option domain-name-servers 8.8.8.8;
+  option dhcp-server-identifier 10.0.2.1;
+  renew 1 2026/03/30 15:22:19;
+  rebind 1 2026/03/30 15:23:06;
+  expire 1 2026/03/30 15:23:21;
+}

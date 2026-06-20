@@ -1,0 +1,4 @@
+11:27:24.634585 IP6 fc00:0:0:1::2 > fc00:0:0:1::1: ICMP6, neighbor advertisement, tgt is fc00:0:0:1::2, length 32
+11:27:24.634594 IP6 fc00:0:0:1::1 > fc00:0:0:1::2: ICMP6, echo request, id 65243, seq 1, length 64
+11:27:24.634613 IP6 fc00:0:0:1::2 > fc00:0:0:1::1: ICMP6, echo reply, id 65243, seq 1, length 64
+

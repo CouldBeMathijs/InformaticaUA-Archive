@@ -1,0 +1,22 @@
+-----------------------------------------------------------
+Server listening on 5201
+-----------------------------------------------------------
+Accepted connection from fc00:0:0:1::1, port 47610
+[  7] local fc00:0:0:2::2 port 5201 connected to fc00:0:0:1::1 port 41378
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  7]   0.00-1.00   sec  62.0 KBytes   508 Kbits/sec  1.858 ms  0/30 (0%)  
+[  7]   1.00-2.00   sec   114 KBytes   931 Kbits/sec  2.764 ms  0/55 (0%)  
+[  7]   2.00-3.00   sec   114 KBytes   930 Kbits/sec  2.130 ms  0/55 (0%)  
+[  7]   3.00-4.00   sec   116 KBytes   948 Kbits/sec  4.108 ms  0/56 (0%)  
+[  7]   4.00-5.00   sec   114 KBytes   931 Kbits/sec  3.461 ms  0/55 (0%)  
+[  7]   5.00-6.00   sec   107 KBytes   880 Kbits/sec  5.406 ms  0/52 (0%)  
+[  7]   6.00-7.00   sec   109 KBytes   897 Kbits/sec  9.204 ms  0/53 (0%)  
+[  7]   7.00-8.00   sec   114 KBytes   930 Kbits/sec  5.810 ms  0/55 (0%)  
+[  7]   8.00-9.00   sec   114 KBytes   931 Kbits/sec  4.937 ms  0/55 (0%)  
+[  7]   9.00-9.54   sec  62.0 KBytes   939 Kbits/sec  3.365 ms  0/30 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  7]   0.00-9.54   sec  1.00 MBytes   880 Kbits/sec  3.365 ms  0/496 (0%)  receiver
+-----------------------------------------------------------
+Server listening on 5201
+-----------------------------------------------------------

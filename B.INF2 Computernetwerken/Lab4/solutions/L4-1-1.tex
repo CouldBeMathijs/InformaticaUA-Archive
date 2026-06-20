@@ -1,0 +1,4 @@
+De prefix is overal 64, wat maakt dat het als alles voor de :: gelijk is, 2 apparaten zich op hetzelfde subnet bevinden.\\
+Enkel de wederzijdse ping tussen h2 en h3 komt aan, h2 en r2-eth0 bevinden zich op hetzelfde subnet, en r2-eth1 en h3 ook.\\
+h1 en r1-eth0 bevinden zich ook op hetzelfde subnet, maar r1-eth1 bevindt zich op een ander subnet dan r2-eth0 en h2, waardoor h1 niemand kan bereiken.\\
+h1 <-> h2 en h1 <-> h3 falen dus.

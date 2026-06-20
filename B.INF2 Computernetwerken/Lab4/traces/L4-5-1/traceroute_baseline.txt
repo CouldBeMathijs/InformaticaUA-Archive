@@ -1,0 +1,6 @@
+traceroute to fc00:0:3:a::1 (fc00:0:3:a::1), 30 hops max, 80 byte packets
+ 1  as1ra (fc00:0:1:a::a)  0.073 ms
+ 2  as1rtr (fc00:0:1:abc::a1)  0.141 ms
+ 3  as3rtr (fc00:13::3)  0.053 ms
+ 4  as3ra (fc00:0:3:abc::1a)  0.213 ms
+ 5  h3a (fc00:0:3:a::1)  0.073 ms

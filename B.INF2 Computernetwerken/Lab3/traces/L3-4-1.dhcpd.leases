@@ -1,0 +1,98 @@
+# The format of this file is documented in the dhcpd.leases(5) manual page.
+# This lease file was written by isc-dhcp-4.4.1
+
+# authoring-byte-order entry is generated, DO NOT DELETE
+authoring-byte-order little-endian;
+
+server-duid "\000\001\000\0011]P\321\266X\257\020R\367";
+
+lease 10.0.1.50 {
+  starts 1 2026/03/30 15:19:09;
+  ends 1 2026/03/30 15:21:09;
+  cltt 1 2026/03/30 15:19:09;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 7a:f1:e2:6b:a8:55;
+  client-hostname "computernetwerken";
+}
+lease 10.0.1.51 {
+  starts 1 2026/03/30 15:19:21;
+  ends 1 2026/03/30 15:21:21;
+  cltt 1 2026/03/30 15:19:21;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 56:3e:d2:9e:b7:30;
+  client-hostname "computernetwerken";
+}
+lease 10.0.2.50 {
+  starts 1 2026/03/30 15:19:29;
+  ends 1 2026/03/30 15:21:29;
+  cltt 1 2026/03/30 15:19:29;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 9e:be:0a:f1:3c:cc;
+  client-hostname "computernetwerken";
+}
+lease 10.0.1.50 {
+  starts 1 2026/03/30 15:20:07;
+  ends 1 2026/03/30 15:22:07;
+  cltt 1 2026/03/30 15:20:07;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 7a:f1:e2:6b:a8:55;
+  client-hostname "computernetwerken";
+}
+lease 10.0.1.51 {
+  starts 1 2026/03/30 15:20:08;
+  ends 1 2026/03/30 15:22:08;
+  cltt 1 2026/03/30 15:20:08;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 56:3e:d2:9e:b7:30;
+  client-hostname "computernetwerken";
+}
+lease 10.0.2.50 {
+  starts 1 2026/03/30 15:20:29;
+  ends 1 2026/03/30 15:22:29;
+  cltt 1 2026/03/30 15:20:29;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 9e:be:0a:f1:3c:cc;
+  client-hostname "computernetwerken";
+}
+lease 10.0.1.50 {
+  starts 1 2026/03/30 15:21:02;
+  ends 1 2026/03/30 15:23:02;
+  cltt 1 2026/03/30 15:21:02;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 7a:f1:e2:6b:a8:55;
+  client-hostname "computernetwerken";
+}
+lease 10.0.1.51 {
+  starts 1 2026/03/30 15:21:08;
+  ends 1 2026/03/30 15:23:08;
+  cltt 1 2026/03/30 15:21:08;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 56:3e:d2:9e:b7:30;
+  client-hostname "computernetwerken";
+}
+lease 10.0.2.50 {
+  starts 1 2026/03/30 15:21:21;
+  ends 1 2026/03/30 15:23:21;
+  cltt 1 2026/03/30 15:21:21;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 9e:be:0a:f1:3c:cc;
+  client-hostname "computernetwerken";
+}

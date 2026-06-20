@@ -1,0 +1,20 @@
+BGP  beheert de bereikbaarheid van netwerken via UPDATE-berichten. Wanneer een link wegvalt of hersteld wordt, gebruikt de router as1rb deze berichten om zijn routeringstabel bij te werken.
+
+Interface gaat DOWN (packet 455 en 457)\\
+
+Wanneer de verbinding tussen \texttt{as1rc} en AS2 wordt verbroken, vindt het volgende proces plaats:
+
+\begin{itemize}
+    \item {packet 455 (Withdrawal):} De router \texttt{as1rc} (\texttt{fc00:0:1:bc::c}) stuurt een UPDATE-bericht naar \texttt{as1rb} (\texttt{fc00:0:1:bc::b}). Dit packet bevat het veld {"Withdrawn Routes"}. Hierin staat het prefix van AS2 vermeld. Dit is het signaal voor \texttt{as1rb} dat de directe route via \texttt{as1rc} niet meer bruikbaar is, waardoor deze uit de routeringstabel wordt verwijderd.
+    \item {packet 457 (Nieuwe route):} Kort daarna stuurt \texttt{as1ra} (\texttt{fc00:0:1:ab::a}) een UPDATE-bericht naar \texttt{as1rb}. Dit packet bevat {NLRI} (Network Layer Reachability Information) voor het netwerk van AS2, maar met een gewijzigd path attribuut (bijvoorbeeld via AS3). Omdat de primaire route is ingetrokken, kiest \texttt{as1rb} deze alternatieve route om de communicatie tussen \texttt{h1b} en \texttt{h2b} te herstellen.
+\end{itemize}
+
+Interface gaat terug UP (packet 738 en 740)\\
+
+Zodra de verbinding wordt hersteld, wordt de optimale route opnieuw geadverteerd:
+
+\begin{itemize}
+    \item {packet 738 (Re-advertisement):} Wanneer de interface van \texttt{as1rc} weer actief is, stuurt deze een nieuw UPDATE-bericht naar \texttt{as1rb}. Dit packet bevat de {NLRI} voor AS2 met de oorspronkelijke, kortere path (namelijk enkel AS 2).
+    \item {packet 740 (Route Selectie):} \texttt{as1ra} stuurt eveneens een update. \texttt{as1rb} heeft nu twee mogelijke paden naar AS2: één via \texttt{as1ra} (lang pad) en één via \texttt{as1rc} (kort pad).
+    \item {Besluit:} Op basis van het {BGP Decision Process} vergelijkt \texttt{as1rb} de attributen van beide updates. De route via \texttt{as1rc} wordt verkozen omdat deze een kortere path heeft. Hierdoor wordt de directe verbinding hersteld en de omleiding via AS3 gestopt.
+\end{itemize}

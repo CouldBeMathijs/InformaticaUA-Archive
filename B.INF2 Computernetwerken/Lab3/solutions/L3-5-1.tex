@@ -1,0 +1,8 @@
+- h1 $\rightarrow$ h2: Slaagt - Ze zitten in hetzelfde subnet (10.0.1.0/24)\\
+- h1 $\rightarrow$ h3: Slaagt - r1 fungeert als tussenpersoon zoals hoort bij NAT\\
+
+- h2 $\rightarrow$ r1 (eth0): Slaagt - h2 is client van r1, dus er is geen NAT nodig.\\
+- h2 $\rightarrow$ h3: Slaagt - idem aan h1 $\rightarrow$ h3\\
+
+- h3 $\rightarrow$ r1 (eth1): Slaagt - h3 is client van r1, dus er is geen NAT nodig.\\
+- h3 $\rightarrow$ h1: Faalt - zelfs met NAT kan er geen verbinding worden gemaakt, aangezien h3 een buitenstaander is, en NAT hier dus geen info over bijhoudt, h1 is ook een privé-adres

@@ -1,0 +1,4 @@
+- De client stuurt zolang die nog geen weet heeft van het IP adres van de router naar 255.255.255.255 off FF:FF...FF, dit wordt ontvangen door alle hosts op het netwerk, waaronder dus de router.
+- De router communiceert met de client d.m.v. de broadcastmethode als in bovenstaande, of het MAC-adres van de client
+
+Let wel: enkel de eerste communicatie gebeurt op deze manier, zodra het offer verzonden wordt staat het in de tabel en is het geleast, dit verklaart waarom WireShark het IP-adres voor het offerpakket al als verzonden naar het gekozen IP-adres toont, ook al is de lease nog niet goedgekeurd door de client. 

@@ -1,0 +1,7 @@
+- r1 heeft een route nodig naar het subnet fc00:0:0:3\\
+- r2 heeft een route nodig naar het subnet fc00:0:0:1\\
+- h2 heeft een route nodig naar het subnet fc00:0:0:1\\
+Hiervoor gebruikten we volgende commando's\\
+ip -6 route add fc00:0:0:3::/64 via fc00:0:0:2::11 dev r1-eth1\\
+ip -6 route add fc00:0:0:1::/64 via fc00:0:0:2::10 dev r2-eth0\\
+ip -6 route add fc00:0:0:1::/64 via fc00:0:0:2::10 dev h2-eth0

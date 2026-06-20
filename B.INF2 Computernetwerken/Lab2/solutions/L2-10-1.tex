@@ -1,0 +1,28 @@
+\textbf{Het experiment:}
+
+Ons experiment is nagenoeg volledig geautomatiseerd. Bij het runnen van het Python script \linkscript{py} \textit{(Link werkt niet met de gevraagde submap)} zullen er 4 devices aangemaakt worden, elk verbonden met dezelfde router, alles met een max bandwidth van 200Kbps.\\
+
+\textbf{Het script runnen:}
+Run het script door: "python3 L2-10-1.py" uit te voeren\\
+In mininet run: "py run\_test(net)"
+Wat er achterliggend gebeurt:
+- h1 is de server, en runt 3 iperf3 servers.\\
+- h2 en h3 zijn tcp clients die elk verbinden met een server van h1\\
+- h4 is een udp client die verbindt met een server van h1\\
+De outputfiles wordt automatisch opgeslagen in een folder op de desktop van de VM.
+
+\textbf{Aanwezige files in de traces:}
+\begin{itemize}
+    \item Main wiresharkbestand "capture.pcapng" (uit het perspectief van h1)
+    \item Bestanden met de client outputs:
+    \begin{itemize}
+        \item h2-tcp.txt
+        \item h3-tcp.txt
+        \item h4-udp.txt
+    \end{itemize}
+\end{itemize}
+
+\textbf{Conclusies:}
+-h1 en h2 beginnen alleen, ze verzadigen de verbinding snel.\\
+Nadat h3 erbij komt wordt TCP-fairness toegepast om de gelimiteerde bandbreedte van h1 eerlijk te verdelen tussen -h2 en h3.\\
+-Zodra h4 erbij komt, neemt deze zonder aandacht voor de andere verbindingen alle bandbreedte in, TCP wordt weggeconcureerd door de 'onvriendelijkere' UDP.\\

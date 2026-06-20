@@ -1,0 +1,17 @@
+Every 2.0s: ip -6 addr show          computernetwerken: Tue Mar 31 15:32:24 2026
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 state UNKNOWN qlen 1000
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: h1-eth0@if4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fc00::1:84d3:32ff:fe36:e489/64 scope global deprecated dynamic mngtmpaddr
+      valid_lft 49sec preferred_lft 0sec
+    inet6 fe80::84d3:32ff:fe36:e489/64 scope link
+    valid_lft forever preferred_lft forever
+
+Every 2.0s: ip -6 addr show          computernetwerken: Tue Mar 31 15:33:40 2026
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 state UNKNOWN qlen 1000
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: h1-eth0@if4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fe80::84d3:32ff:fe36:e489/64 scope link
+       valid_lft forever preferred_lft forever

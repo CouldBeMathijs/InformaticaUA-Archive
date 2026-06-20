@@ -1,0 +1,20 @@
+PING fc00:1234::1(fc00:1234::1) 56 data bytes
+From fc00:0:0:1::10 icmp_seq=1 Destination unreachable: No route
+From fc00:0:0:1::10 icmp_seq=2 Destination unreachable: No route
+^C
+--- fc00:1234::1 ping statistics ---
+2 packets transmitted, 0 received, +2 errors, 100% packet loss, time 1015ms
+
+PING ff02::1(ff02::1) 56 data bytes
+64 bytes from fe80::c0bf:9fff:fe4b:8c86%h1-eth0: icmp_seq=1 ttl=64 time=0.056 ms
+64 bytes from fe80::4eb:96ff:feb3:cbac%h1-eth0: icmp_seq=1 ttl=64 time=0.184 ms
+64 bytes from fe80::e0a6:79ff:fe33:c3fb%h1-eth0: icmp_seq=1 ttl=64 time=0.196 ms
+64 bytes from fe80::a818:e4ff:fed6:e09d%h1-eth0: icmp_seq=1 ttl=64 time=0.245 ms
+64 bytes from fe80::c0bf:9fff:fe4b:8c86%h1-eth0: icmp_seq=2 ttl=64 time=0.088 ms
+64 bytes from fe80::e0a6:79ff:fe33:c3fb%h1-eth0: icmp_seq=2 ttl=64 time=0.131 ms
+64 bytes from fe80::4eb:96ff:feb3:cbac%h1-eth0: icmp_seq=2 ttl=64 time=0.177 ms
+64 bytes from fe80::a818:e4ff:fed6:e09d%h1-eth0: icmp_seq=2 ttl=64 time=0.179 ms
+^C
+--- ff02::1 ping statistics ---
+2 packets transmitted, 2 received, +6 duplicates, 0% packet loss, time 1017ms
+rtt min/avg/max/mdev = 0.056/0.157/0.245/0.057 ms

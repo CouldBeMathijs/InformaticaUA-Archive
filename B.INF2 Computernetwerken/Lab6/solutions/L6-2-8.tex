@@ -1,0 +1,19 @@
+N=10 stations, interval=0.001s $\rightarrow$ throughput = 0.0 Mbps\\
+N=10 stations, interval=0.01s  $\rightarrow$ throughput = 0.569 Mbps\\
+N=10 stations, interval=0.1s  $\rightarrow$ throughput = 0.610 Mbps\\
+N=10 stations, interval=0.2s  $\rightarrow$ throughput = 0.347 Mbps\\
+N=10 stations, interval=0.5s  $\rightarrow$ throughput = 0.147 Mbps\\
+N=10 stations, interval=1.0s  $\rightarrow$ throughput = 0.0748 Mbps\\
+N=10 stations, interval=2.0s  $\rightarrow$ throughput = 0.0375 Mbps\\
+N=10 stations, interval=5.0s  $\rightarrow$ throughput = 0.0155 Mbps\\
+
+G kunnen we verhogen op 2 manieren:\\
+
+1: door het aantal stations te verhogen N.\\
+2: of door get interval tussen packets te verkleinen. \\
+
+Aan de hand van onze output kunnen we zien dat de throughput stijgt naarmate het interval daalt. Dat komt omdat het hier zich nog in het stabiele lage load status bevindt. Bij een interval van 0.01s interne botsingen op binnen de apparaten zelf. Pakketten worden gegenereerd voordat de vorige verzending is afgerond en worden intern gedropt.\\
+
+Bij een extreem klein interval van 0.001s raken alle stations permanent in een zendstatus, wat resulteert in een constante kanaalbotsing en een throughput van exact 0Mbps.\\
+
+Op dit punt is het afhankelijk van apparaat-specifieke beperkingen, wat dus niet gebeurt bij een grote N met een groot interval. Dus dit laat zien dat ze dus niet equivalent zijn.

@@ -1,0 +1,149 @@
+\textbf{Scenario}\\
+We testen de verbinding tussen h1a (AS1, fc00:0:1:a::1) en h3a (AS3, fc00:0:3:a::1).
+Het pad loopt over zowel OSPF (intra-AS binnen AS1 en AS3) als BGP (inter-AS).\\
+
+We hebben 2 verbindingen opgezet ping (ping\_h1a\_h3a.txt) en iperf (iperf\_h1a\_h3a.txt)
+
+\textbf{Wireshark captures}\\
+  -bgp\_trace\_as1rtr\_allinterfaces.pcapng: automatisch gestart door het script op as1rtr
+     (alle interfaces). Bevat eBGP-sessies met as2rtr (eth2, fc00:12::) en as3rtr (eth3, fc00:13::).\\
+  - ospf\_trace\_as1ra\_eth0.pcapng: manueel gestart op eth0 van as1ra (link naar as1rtr).
+    Bevat OSPF HELLO, LSA, LSU berichten binnen AS1.\\
+
+Het initiële pad van h1a naar h3a zien we in traceroute\_baseline.txt en daar zien we 5 hops in totaal.\\
+
+BGP LINK DOWN (eth3 as1rtr geblokkeerd):\\
+info uit traceroute\_after\_bgp\_down.txt + ping\_h1a\_h3a.txt + bgp\_trace\_as1rtr\_allinterfaces.pcapng\\
+
+Uit bgp\_trace\_as1rtr\_allinterfaces.pcapng:\\
+    We zien in het begin een stabiele sessie waarbij OPEN berichten (packet 41-50) de verbindingen opzetten en KEEPALIVE berichten (packet 52-54) de status bevestigen.
+    Je kan ook zien dat er om de 60s een KEEPALIVE bericht wordt gestuurd, bij packets 494-500 (T=61s) en 630-634 (T=121s). Zodra de blokkade via de ip6tables optreedt, stopt de ontvangst van deze berichten van as3rtr.
+    
+Uit ping\_h1a\_h3a.txt:\\
+
+  - icmp\_seq=1 t/m 68: succesvolle pings, ttl=60 (directe route, 5 hops)\\
+  - Tussen seq=68 en 116: is er geen output, dit zijn de "silent drops".
+    De pakketten worden door ip6tables gedropt, maar de router stuurt ze
+    nog steeds naar eth3 omdat BGP de sessie nog niet als dood beschouwt.
+    Dit is de convergentieperiode: 48 seconden packet loss zonder enige melding.\\
+  - icmp\_seq=116 t/m 187: "Destination unreachable: Address unreachable" van fc00:0:1:abc::a1
+    (= as1rtr). Dit betekent dat BGP nu weet dat as3rtr niet meer bereikbaar is, maar nog
+    geen alternatief heeft gevonden (of de route via as2rtr nog niet volledig geconvergeerd is).
+    Dit duurt ongeveer 72 secondenv van seq=116 tot en met 187.\\
+  - icmp\_seq=207: eerste succesvolle ping terug.\
+
+Uit traceroute\_after\_bgp\_down.txt:\\
+
+   "!H" = Host unreachable. De traceroute werd uitgevoerd tijdens de convergentieperiod, iets te vroeg duys, maar die zou niet al te veel invloed mogen hebben op onze conclusie. as1rtr weet dus nog niet hoe hij bij h3a moet geraken, omdat BGP nog niet voor een alternatief heeft gezoporgd. Er is ook een dubbele hop van as1rtr, dit zou een ICMP unreachable kunnen zijn die hij terugstuurde naar zichzelf.\\
+
+Uit iperf\_h1a\_h3a.txt:\\
+
+  - Seconden 0-47: stabiele 1.05 Mbits/sec, 0 retransmissions\\
+  - Seconde 48-49: eerste retransmissions (Retr=2, daarna Retr=1), Cwnd daalt naar 1.39 KB\\
+  - Seconden 49-262: 0.00 Bytes/sec volledige TCP-onderbreking (213 seconden)\\
+    TCP houdt de sessie open (Cwnd=1.39 KB = minimum), maar kan geen data versturen.
+  - Seconde 262-263: burst van 25.5 MBytes tegen 214 Mbits/sec $\rightarrow$ TCP stuurt alle gebufferde data ineens door zodra de route hersteld is (nadat BGP via as2rtr opnieuw convergeert).\\
+  - Seconden 263+: terug stabiel op 1.05 Mbits/sec\\
+
+Waarom duurt het zo lang?\\
+ip6tables blokkeert verkeer maar laat de interface "up" lijken. BGP detecteert de fout
+  enkel via zijn hold timer: standaard 90 seconden zonder KEEPALIVE. Pas dan stuurt as1rtr
+  een WITHDRAWAL naar as2rtr. as2rtr berekent het alternatieve pad (via as2rtr naar as3rtr)
+  en stuurt een UPDATE terug. Deze extra tour van de BGP UPDATE-berichten verklaart waarom
+  de totale onderbreking (137s) langer is dan de hold timer alleen (90s).\\
+
+De info reist tussen de border routers as1rtr $\rightarrow$ as2rtr $\rightarrow$ as3rtr, de interne routers worden niet rechtstreeks geinformeerd via BGP zij leren dat door OSPF-redistributie.\\
+
+OSPF LINK DOWN (eth0 as1ra geblokkeerd):
+info uit traceroute\_after\_ospf\_down.txt + ping\_h1a\_h3a.txt + ospf\_trace\_as1ra\_eth0.pcap\\
+
+Uit ospf\_trace\_as1ra\_eth0.pcap:\\
+    We zien het moment van uitval duidelijk terug in de Hello-packets. Tot en met pakket 881 (T=206.22s) is er sprake van normale communicatie. Vanaf dat moment stopt router as1ra (fe80::868:5dff:fe36:ad80) met het sturen van Hello-berichten door de blokkade. De andere router blijft nog even Hello-packets sturen (packet 895 t/m 929), maar omdat er geen antwoord komt, zal na de dead timer van 20 seconden de adjacency verbroken worden.\\
+
+Uit traceroute\_after\_ospf\_down.txt:\\
+    Er zijn nu 8 hops, OSPF heeft het kortste alternatieve pad berkend:
+    as1ra $\rightarrow$ as1rb (kost 4) $\rightarrow$ as1rc (kost 3) $\rightarrow$ as1rtr (kost 1) = totaal kost 8.
+    Dit is het enige overgebleven pad binnen AS1 naar as1rtr, want de directe link
+    as1ra $\Leftrightarrow$ as1rtr (kost 1) is geblokkeerd.\\
+
+Uit ping\_h1a\_h3a.txt:\\
+  - icmp\_seq=207-226: ttl=57 (pad via as2rtr, 8 hops)\\
+  - icmp\_seq=227: ttl=59 $\rightarrow$ dit is het moment waarop OSPF convergeert na het blokkeren\\
+    van eth0. ttl=59 betekent 6 hops. Dit klopt niet perfect met de traceroute (8 hops),\\
+    maar kan te maken hebben met timing van het meten vs de reconvergentie.\\
+
+Waarom is OSPF sneller dan BGP?\\
+
+  OSPF gebruikt hello\_int=5s en dead\_int=20s. Na 20 seconden zonder\\
+  hello's beschouwt as1rtr de buur as1ra als dood, genereert een nieuw LSA, en verspreidt\\
+  dit via LSU flooding naar ALLE routers binnen AS1 (as1ra, as1rb, as1rc). Dit is veel sneller dan de BGP hold timer (90s).\\
+
+Hoe ver gaat de info?\\
+
+  OSPF LSU berichten worden geflooded binnen AS1. Alleen as1rtr, as1ra, as1rb en as1rc
+  ontvangen en verwerken deze. Routers in AS2 en AS3 worden dus niet geïnformeerd: de scheiding tussen IGP (intra-AS) en EGP (inter-AS). \\ 
+
+
+OSPF LINK TERUG UP (ip6tables -F op as1ra)\\
+Zie traceroute\_after\_ospf\_up.txt + ping\_h1a\_h3a.txt + ospf\_trace\_as1ra\_eth0.pcap:\\
+
+In de trace zien we bij pakket 930 (T=245.21s) dat router as1ra weer verschijnt. Dit markeert het einde van de blokkade. De routers herstellen onmiddellijk hun verbinding.\\
+
+Direct na de eerste Hello-packets zien we de daadwerkelijke synchronisatie van de databases. In pakket 939 (T=246.24s) stuurt as1ra (fe80::868:5dff:fe36:ad80) een Link State Update. Dit wordt onmiddellijk gevolgd door packet 940 (T=246.24s), waarin as1rtr (fe80::3094:4eff:fe96:96b8) eveneens een LSU verstuurt. Deze LSU-packets bevatten de nieuwe Link State Advertisements die aan het hele netwerk vertellen dat de kortere route via eth0 weer operationeel is. Dit proces zorgt ervoor dat alle routers in AS1 hun routingtabel onmiddellijk bijwerken.\\
+
+Er zijn 6hops, deze had eigenlijk gelijk moeten zijn aan die van traceroute\_after\_bgp\_down.txt, maar omdat ik die te vroeg had gedaan is dat nu dus niet. Maar hier zien we nu wel goed dat er 6 hops zijn. De directe OSPF link is terug (2 hops binnen AS1), maar de BGP link as1rtr $\Leftrightarrow$ as3rtr
+is nog geblokkeerd, dus het BGP pad loopt nog via as2rtr.\\
+
+Bij dit herstel is er geen packetloss zichtbaar, uit ping\_h1a\_h3a.txt: de overgang van ttl=57/59 naar ttl=59 (na OSPF herstel) is vloeiend, geen onderbreking zichtbaar. OSPF herstelt snel en het alternatieve pad blijft beschikbaar tijdens de reconvergentie.\\
+
+BGP LINK TERUG UP (ip6tables -F op as1rtr):
+Zie traceroute\_after\_bgp\_up.txt + ping\_h1a\_h3a.txt + ospf\_trace\_as1ra\_eth0.pcap:\\
+
+In de BGP-trace zien we de eerste fase van het herstel bij packet 2291 (T=301.10s), waar as1rtr (fc00:12::1) een UPDATE-bericht naar as2rtr stuurt. Dit is het moment waarop het alternatieve pad volledig operationeel is en de pings weer doorkomen.\\
+
+Het definitieve herstel van de directe link naar AS3 vindt plaats rond T=422s. We zien de directe BGP-sessie met as3rtr herstellen via OPEN berichten (packet 7993 en 7995) en de daaropvolgende KEEPALIVES (7997 en 7999). De uiteindelijke reconvergentie naar de optimale route wordt bevestigd door de reeks UPDATE berichten (pakketten 8037-8047), waarbij de prefixen van AS3 weer via de kortste weg geadverteerd worden.\
+
+Een minder direct bewijs voor de BGP-reconvergentie is de enorme sprong in pakketnummers in de OSPF-trace. Tussen packet 1075 (T=296.25s) en packet 3460 (T=300.27s) zitten slechts 4 seconden, maar er zijn meer dan 2300 packets gepasseerd. Dit komt doordat de BGP-route op dat moment hersteld is, waarna de iperf-sessie alle gebufferde data in één burst verstuurt.\\
+
+5 hops en het is identiek aan de baseline. De topologie is volledig hersteld.\\
+
+Uit ping\_h1a\_h3a.txt:
+  - icmp\_seq=309: ttl verandert van 59 naar 60 $\rightarrow$ dit is het exacte moment van BGP reconvergentie.
+    ttl=60 = 5 hops (directe route).\\
+    De overgang is direct.\\
+
+Er is geen packet loss hier bij eht herstel omdat het alternatieve pad toegankelijk blijft terwijl BGP bezig is met het herstel. \\
+
+\textbf{Samenvatting van de observaties}
+
+\textit{1. Onmiddelijk of Vertraagd?}\\
+
+   - BGP link down: 137 seconden totale onderbreking (hold timer + reconvergentie).
+     Verschil met 4.3 (ip link down): bij ip link down zou de kernel onmiddellijk\\
+     de interface als down melden; met ip6tables moet BGP wachten op timer-expiratie.\\
+   - OSPF link down: 20 seconden (dead\_int=20s). Sneller dan BGP, maar ook vertraagd
+     vs ip link down (waarbij OSPF onmiddellijk een nieuw LSA zou genereren).\\
+ 
+\textit{2. Packet Loss?}\\
+
+   - BGP down: JA, 137 seconden (silent drops + unreachable berichten).
+     Zichtbaar in ping (seq=69-206 ontbreekt/unreachable) en iperf (sec 48-262: 0 bytes).\\
+     
+   - OSPF down: kleine onderbreking (20s), nauwelijks zichtbaar in ping.\\
+   
+   - BGP up: GEEN packet loss (icmp\_seq doorloopt zonder onderbreking).\\
+   
+   - OSPF up: GEEN packet loss.\\
+ 
+\textit{3. Hoe weten de Routers van de Verandering?}\\
+
+   - BGP: hold timer verloopt $\rightarrow$ WITHDRAWAL berichten $\rightarrow$ UPDATE met nieuw pad.\\
+   - OSPF: dead timer (20s) $\rightarrow$ nieuw LSA $\rightarrow$ LSU flooding binnen AS1.\\
+ 
+\textit{4. Hoe ver reist de Info?}\\
+
+   - OSPF: enkel binnen AS1 (as1rtr, as1ra, as1rb, as1rc).\\
+   - BGP: enkel tussen border routers (as1rtr $\Leftrightarrow$ as2rtr $\Leftrightarrow$ as3rtr).\\
+   
+     Interne routers leren inter-AS routes via OSPF-redistributie (redistribute bgp).\\
+     

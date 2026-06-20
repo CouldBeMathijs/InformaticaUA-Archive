@@ -1,0 +1,6 @@
+\includegraphics{Lab6/Group12/Lab6/traces/L6-4-1.throughput_comparison.png}
+Pure Aloha zendt blind zonder te luisteren. De kwetsbare periode is 2tau, een pakket kan botsen met elk pakket dat start binnen één transmissieduur voor of na het eigen pakket. Dit beperkt de maximale efficiëntie tot $\dfrac{1}{2e} \approx 18.4\%$
+
+Slotted Aloha (theoretisch) halveert de kwetsbare periode naar tau doordat stations alleen aan het begin van een tijdslot mogen zenden. Dit verhoogt de maximale efficiëntie naar $\dfrac{1}{e} \approx 36.8\%$
+
+DCF presteert het best omdat het CSMA/CA gebruikt: stations luisteren eerst of het kanaal vrij is en wachten een willekeurige backoff-tijd voor ze zenden. Hierdoor worden de meeste collisions volledig vermeden in plaats van enkel verkleind. Bij weinig stations is het kanaal bijna altijd vrij en loopt de throughput lineair op. 
